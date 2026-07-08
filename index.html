@@ -1,0 +1,3411 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CV interactif de Maxime ERARD, consultant IA générative orienté workflows métier, open source, API et automatisation.">
+  <meta property="og:title" content="Maxime ERARD — CV IA générative &amp; workflows open source">
+  <meta property="og:description" content="CV interactif de Maxime ERARD, consultant IA générative orienté workflows métier, open source, API et automatisation.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <title>Maxime ERARD — CV IA générative &amp; workflows open source</title>
+  <style>
+    :root {
+      --paper: #f4f6f3;
+      --surface: #ffffff;
+      --surface-soft: #f7f9f6;
+      --ink: #111513;
+      --muted: #58625d;
+      --line: #d8ded8;
+      --line-strong: #aebbb2;
+      --graphite: #151a17;
+      --hero-1: #0d1412;
+      --hero-2: #17231f;
+      --hero-accent: #b04a3f;
+      --theme-ai: var(--hero-accent);
+      --theme-ai-soft: #f8eeec;
+      --theme-ai-ink: #7c3029;
+      --theme-open: var(--hero-accent);
+      --theme-open-soft: #f8eeec;
+      --theme-open-ink: #7c3029;
+      --theme-api: var(--hero-accent);
+      --theme-api-soft: #f8eeec;
+      --theme-api-ink: #7c3029;
+      --theme-production: var(--hero-accent);
+      --theme-production-soft: #f8eeec;
+      --theme-production-ink: #7c3029;
+      --theme-formation: var(--hero-accent);
+      --theme-formation-soft: #f8eeec;
+      --theme-formation-ink: #7c3029;
+      --theme-method: var(--hero-accent);
+      --theme-method-soft: #f8eeec;
+      --theme-method-ink: #7c3029;
+      --green: var(--hero-accent);
+      --focus-ring: #7c3029;
+      --shadow-soft: 0 1px 2px rgba(12, 19, 16, 0.04), 0 10px 24px rgba(12, 19, 16, 0.06);
+      --radius: 8px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --type-xs: 0.7rem;
+      --type-sm: 0.82rem;
+      --type-body: 0.94rem;
+      --type-lead: 1.02rem;
+      --type-card-title: 1rem;
+      --type-section-title: 1.22rem;
+      --type-hero-title: clamp(2.25rem, 4vw, 3.55rem);
+    }
+
+    /* Base */
+    * {
+      box-sizing: border-box;
+      letter-spacing: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(244, 246, 243, 0.8) 320px),
+        linear-gradient(90deg, rgba(17, 21, 19, 0.025) 1px, transparent 1px),
+        var(--paper);
+      background-size: auto, 32px 32px, auto;
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    a {
+      color: var(--green);
+      font-weight: 560;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+      text-decoration-color: rgba(11, 79, 58, 0.32);
+    }
+
+    a:hover {
+      color: var(--green);
+      text-decoration-color: currentColor;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    address {
+      font-style: normal;
+    }
+
+    button:focus-visible,
+    a:focus-visible {
+      outline: 2px solid var(--focus-ring);
+      outline-offset: 3px;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      z-index: 100;
+      transform: translateY(-160%);
+      padding: 8px 10px;
+      border: 1px solid var(--line-strong);
+      border-radius: 6px;
+      background: var(--surface);
+      color: var(--ink);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .skip-link:focus-visible {
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+      }
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.12;
+    }
+
+    h1 {
+      color: #0b100e;
+      font-size: var(--type-hero-title);
+      font-weight: 820;
+    }
+
+    /* Layout */
+    .page {
+      width: min(1060px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 48px;
+    }
+
+    .shell {
+      display: grid;
+      gap: 15px;
+    }
+
+    .hero,
+    .section,
+    .project-card,
+    .compact-card,
+    .experience-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .section {
+      padding: 22px 24px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .section h2,
+    .compact-card h2,
+    .experience-card h2 {
+      color: var(--graphite);
+      font-size: var(--type-section-title);
+      font-weight: 780;
+    }
+
+    .section-note {
+      max-width: 610px;
+      margin: 0;
+      color: var(--muted);
+      font-size: var(--type-body);
+      line-height: 1.48;
+    }
+
+    section[aria-labelledby="domaines-intervention"] {
+      background:
+        linear-gradient(135deg, color-mix(in srgb, var(--hero-1) 98%, transparent), color-mix(in srgb, var(--hero-2) 96%, transparent)),
+        var(--graphite);
+      color: #eef4ef;
+    }
+
+    section[aria-labelledby="domaines-intervention"] h2 {
+      color: #ffffff;
+    }
+
+    section[aria-labelledby="domaines-intervention"] .section-note {
+      color: #d6e7dd;
+    }
+
+    section[aria-labelledby="domaines-intervention"] .value-list li {
+      border-left-color: var(--hero-accent);
+      background: rgba(255, 255, 255, 0.08);
+      color: #eef4ef;
+    }
+
+    section[aria-labelledby="projets"] {
+      background:
+        linear-gradient(135deg, color-mix(in srgb, var(--hero-1) 98%, transparent), color-mix(in srgb, var(--hero-2) 96%, transparent)),
+        var(--graphite);
+      color: #eef4ef;
+    }
+
+    section[aria-labelledby="projets"] h2 {
+      color: #ffffff;
+    }
+
+    section[aria-labelledby="projets"] .section-note,
+    section[aria-labelledby="projets"] .filter-label {
+      color: #d6e7dd;
+    }
+
+    section[aria-labelledby="projets"] .project-filters {
+      border-bottom-color: rgba(255, 255, 255, 0.16);
+    }
+
+    section[aria-labelledby="projets"] .control-button,
+    section[aria-labelledby="projets"] .filter-button {
+      border-color: rgba(255, 255, 255, 0.18);
+      color: #eef4ef;
+    }
+
+    section[aria-labelledby="projets"] .control-button:hover,
+    section[aria-labelledby="projets"] .filter-button:hover {
+      border-color: rgba(255, 255, 255, 0.34);
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+    }
+
+    section[aria-labelledby="projets"] .filter-button.is-active {
+      border-color: var(--hero-accent);
+      background: var(--hero-accent);
+      color: #fffaf8;
+    }
+
+    section[aria-labelledby="stack"] {
+      background:
+        linear-gradient(135deg, color-mix(in srgb, var(--hero-1) 98%, transparent), color-mix(in srgb, var(--hero-2) 96%, transparent)),
+        var(--graphite);
+      color: #eef4ef;
+    }
+
+    section[aria-labelledby="stack"] h2 {
+      color: #ffffff;
+    }
+
+    section[aria-labelledby="stack"] .section-note {
+      color: #d6e7dd;
+    }
+
+    section[aria-labelledby="posture"] {
+      background:
+        linear-gradient(135deg, color-mix(in srgb, var(--hero-1) 98%, transparent), color-mix(in srgb, var(--hero-2) 96%, transparent)),
+        var(--graphite);
+      color: #eef4ef;
+    }
+
+    section[aria-labelledby="posture"] h2 {
+      color: #ffffff;
+    }
+
+    section[aria-labelledby="posture"] .posture-list li {
+      border-left-color: var(--hero-accent);
+      background: rgba(255, 255, 255, 0.08);
+      color: #eef4ef;
+    }
+
+    section[aria-labelledby="posture"] .posture-list li strong {
+      color: #ffffff;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    /* Header */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 300px;
+      gap: 24px;
+      padding: 28px 32px;
+      position: relative;
+      overflow: hidden;
+      background: var(--graphite);
+      background:
+        linear-gradient(135deg, color-mix(in srgb, var(--hero-1) 98%, transparent), color-mix(in srgb, var(--hero-2) 96%, transparent)),
+        var(--graphite);
+      color: #eef4ef;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-top: 4px solid var(--hero-accent);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      pointer-events: none;
+    }
+
+    .identity {
+      min-width: 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      color: #b8c6bf;
+      font-family: var(--mono);
+      font-size: var(--type-xs);
+      font-weight: 650;
+      text-transform: none;
+    }
+
+    .eyebrow::before {
+      content: "$";
+      color: var(--hero-accent);
+    }
+
+    .title {
+      margin: 8px 0 12px;
+      color: #d6e7dd;
+      font-size: 1.12rem;
+      font-weight: 720;
+    }
+
+    .hero h1 {
+      color: #ffffff;
+    }
+
+    .lead {
+      max-width: 720px;
+      margin: 0;
+      color: #eef4ef;
+      font-size: var(--type-lead);
+      line-height: 1.48;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 14px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 6px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 6px;
+      background: #b04a3f;
+      color: #fffaf8;
+      font-size: var(--type-sm);
+      font-weight: 650;
+      line-height: 1.25;
+      white-space: nowrap;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 82px minmax(0, 1fr);
+      gap: 4px 12px;
+      margin-top: 13px;
+      color: #dce7e1;
+      font-size: var(--type-sm);
+    }
+
+    .contact-grid span {
+      color: #9dafaa;
+      font-family: var(--mono);
+      font-size: var(--type-xs);
+      font-weight: 650;
+    }
+
+    .contact-grid a {
+      color: #f6fbf8;
+      text-decoration-color: rgba(246, 251, 248, 0.36);
+      word-break: break-word;
+    }
+
+    /* Metrics */
+    .hero-side {
+      display: grid;
+      align-content: start;
+      gap: 10px;
+    }
+
+    .avatar-box {
+      display: grid;
+      place-items: center;
+      width: 96px;
+      aspect-ratio: 1;
+      justify-self: end;
+      border: 1px solid rgba(222, 237, 228, 0.24);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.08);
+      background:
+        linear-gradient(135deg, color-mix(in srgb, var(--hero-accent) 22%, transparent), rgba(255, 255, 255, 0.04)),
+        rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      font-family: var(--mono);
+      font-size: 1.42rem;
+      font-weight: 760;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    }
+
+    .avatar-box img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: var(--radius);
+      object-fit: cover;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .metric {
+      padding: 10px 9px;
+      border: 1px solid rgba(222, 237, 228, 0.18);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .metric strong {
+      display: block;
+      color: #ffffff;
+      font-size: 1.02rem;
+      font-weight: 760;
+      line-height: 1.1;
+    }
+
+    .metric-label {
+      display: block;
+      margin-top: 3px;
+      color: #b8c6bf;
+      font-family: var(--mono);
+      font-size: var(--type-xs);
+      font-weight: 650;
+    }
+
+    .cli-line {
+      padding: 8px 9px;
+      border: 1px dashed rgba(222, 237, 228, 0.28);
+      border-radius: var(--radius);
+      background: rgba(0, 0, 0, 0.18);
+      color: #edf4ef;
+      font-family: var(--mono);
+      font-size: var(--type-xs);
+    }
+
+    /* Sections */
+    .value-list,
+    .posture-list {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .value-list li,
+    .posture-list li {
+      padding: 10px 12px;
+      border-left: 3px solid var(--theme-method);
+      border-radius: 0 6px 6px 0;
+      background: var(--surface-soft);
+      color: #202b27;
+      font-size: var(--type-body);
+    }
+
+    .roles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .roles li {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 6px 10px;
+      border: 1px solid rgba(176, 74, 63, 0.18);
+      border-radius: 6px;
+      background: #b04a3f;
+      color: #fffaf8;
+      font-size: var(--type-sm);
+      font-weight: 650;
+      line-height: 1.25;
+    }
+
+    /* Projects */
+    .project-header {
+      align-items: flex-start;
+    }
+
+    .project-header > div:first-child {
+      min-width: 0;
+    }
+
+    .project-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex: 0 0 auto;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .project-filters {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin: -4px 0 12px;
+      padding: 0 0 10px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .filter-label {
+      display: inline-block;
+      margin-right: 4px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: var(--type-xs);
+      font-weight: 650;
+      line-height: 1;
+      transform: translateY(2px);
+    }
+
+    .control-button,
+    .filter-button,
+    .toggle-detail {
+      --filter-theme: var(--hero-accent);
+      --filter-soft: var(--theme-method-soft);
+      min-height: 30px;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      background: transparent;
+      color: #303b37;
+      box-shadow: none;
+      cursor: pointer;
+      transition: border-color 160ms ease, background 160ms ease, color 160ms ease;
+    }
+
+    .control-button,
+    .filter-button {
+      min-height: 28px;
+      padding: 4px 7px;
+      border-radius: 5px;
+      font-size: var(--type-sm);
+      font-weight: 620;
+    }
+
+    .control-button:hover,
+    .filter-button:hover,
+    .toggle-detail:hover {
+      border-color: var(--line-strong);
+      border-color: color-mix(in srgb, var(--filter-theme) 34%, var(--line));
+      background: var(--filter-soft);
+      color: var(--filter-theme);
+    }
+
+    .control-button {
+      color: #3b4842;
+    }
+
+    .filter-button.is-active {
+      border-color: var(--filter-theme);
+      background: var(--filter-theme);
+      color: #0d1412;
+    }
+
+    .filter-button.is-active::before {
+      content: "•";
+      margin-right: 5px;
+      color: currentColor;
+    }
+
+    .filter-button[data-filter="all"] {
+      --filter-theme: var(--hero-accent);
+      --filter-soft: var(--theme-method-soft);
+    }
+
+    .filter-button[data-filter="produit-ia"] {
+      --filter-theme: var(--hero-accent);
+      --filter-soft: var(--theme-method-soft);
+    }
+
+    .filter-button[data-filter="open-source"] {
+      --filter-theme: var(--hero-accent);
+      --filter-soft: var(--theme-method-soft);
+    }
+
+    .filter-button[data-filter="production"] {
+      --filter-theme: var(--hero-accent);
+      --filter-soft: var(--theme-method-soft);
+    }
+
+    .filter-button[data-filter="formation"] {
+      --filter-theme: var(--hero-accent);
+      --filter-soft: var(--theme-method-soft);
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    /* Project cards */
+    .project-card {
+      --project-theme: var(--theme-method);
+      --project-soft: var(--theme-method-soft);
+      --project-impact: var(--theme-method-ink);
+      --tag-theme: var(--project-theme);
+      display: grid;
+      align-content: start;
+      gap: 13px;
+      padding: 20px;
+      border-left: 3px solid var(--hero-accent);
+      border-radius: 0 6px 6px 0;
+      background: var(--surface);
+      transition: border-color 160ms ease, background-color 160ms ease, box-shadow 160ms ease;
+    }
+
+    .project-card:hover,
+    .project-card.is-open {
+      border-color: var(--line-strong);
+      border-color: color-mix(in srgb, var(--project-theme) 24%, var(--line));
+      border-left-color: var(--hero-accent);
+      background: #ffffff;
+      background:
+        linear-gradient(90deg, color-mix(in srgb, var(--project-soft) 18%, #ffffff), #ffffff 46%),
+        var(--surface);
+      box-shadow: 0 1px 2px rgba(12, 19, 16, 0.04), 0 8px 18px rgba(12, 19, 16, 0.05);
+    }
+
+    .project-card.featured {
+      grid-column: span 2;
+      order: -1;
+      padding: 24px;
+      border-left-width: 3px;
+      border-color: var(--line-strong);
+      border-color: color-mix(in srgb, var(--project-theme) 22%, var(--line));
+      border-left-color: var(--hero-accent);
+      background: #ffffff;
+      background:
+        linear-gradient(90deg, color-mix(in srgb, var(--project-soft) 16%, #ffffff), rgba(255, 255, 255, 0) 40%),
+        var(--surface);
+    }
+
+    #project-minimood {
+      --project-theme: var(--theme-ai);
+      --project-soft: var(--theme-ai-soft);
+      --project-impact: var(--theme-ai-ink);
+    }
+
+    #project-egx {
+      --project-theme: var(--theme-open);
+      --project-soft: var(--theme-open-soft);
+      --project-impact: var(--theme-open-ink);
+    }
+
+    #project-asphalte {
+      --project-theme: var(--theme-production);
+      --project-soft: var(--theme-production-soft);
+      --project-impact: var(--theme-production-ink);
+    }
+
+    #project-formation {
+      --project-theme: var(--theme-formation);
+      --project-soft: var(--theme-formation-soft);
+      --project-impact: var(--theme-formation-ink);
+    }
+
+    #project-packshot {
+      --project-theme: var(--theme-api);
+      --project-soft: var(--theme-api-soft);
+      --project-impact: var(--theme-api-ink);
+    }
+
+    #project-tedx {
+      --project-theme: var(--hero-accent);
+      --project-soft: var(--theme-formation-soft);
+      --project-impact: var(--theme-formation-ink);
+    }
+
+    .project-card.featured .project-title-row h3 {
+      font-size: 1.08rem;
+    }
+
+    .project-card.featured .summary {
+      max-width: 760px;
+      font-size: var(--type-body);
+    }
+
+    .project-card.is-hidden {
+      display: none;
+    }
+
+    .project-top {
+      display: grid;
+      gap: 10px;
+    }
+
+    .project-title-row {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .project-title-row h3 {
+      color: #111713;
+      font-size: var(--type-card-title);
+      line-height: 1.25;
+      font-weight: 780;
+    }
+
+    .date {
+      display: inline-block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: var(--type-xs);
+      line-height: 1.35;
+    }
+
+    .summary {
+      margin: 0;
+      color: #24302b;
+      font-size: var(--type-body);
+      line-height: 1.55;
+    }
+
+    .impact-line {
+      margin: 1px 0 0;
+      color: var(--project-impact, var(--theme-method-ink));
+      font-size: var(--type-sm);
+      font-weight: 650;
+      line-height: 1.44;
+    }
+
+    .toggle-detail {
+      flex: 0 0 auto;
+      padding: 4px 7px;
+      border-color: var(--line);
+      background: var(--surface-soft);
+      color: #20312b;
+      font-size: var(--type-sm);
+      font-weight: 650;
+      white-space: nowrap;
+    }
+
+    .project-detail {
+      display: grid;
+      gap: 10px;
+      margin-top: 3px;
+      padding: 13px 14px;
+      border: 1px solid #d7e1d9;
+      border-left: 2px solid var(--project-theme);
+      border-radius: 6px;
+      background: var(--surface-soft);
+    }
+
+    .js .project-card:not(.is-open) .project-detail {
+      display: none;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 96px minmax(0, 1fr);
+      gap: 8px 14px;
+      margin: 0;
+      font-size: var(--type-sm);
+    }
+
+    .project-card .tag-list {
+      gap: 5px;
+      margin-top: 1px;
+    }
+
+    .detail-grid dt {
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: var(--type-xs);
+      font-weight: 650;
+      transform: translateY(2px);
+    }
+
+    .detail-grid dd {
+      margin: 0;
+      color: #202b27;
+    }
+
+    /* Tags */
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 6px 10px;
+      border: 1px solid #dce2dc;
+      border-radius: 6px;
+      background: var(--surface-soft);
+      color: #56615c;
+      font-family: var(--mono);
+      font-size: var(--type-sm);
+      font-weight: 650;
+      line-height: 1.25;
+    }
+
+    .tag.emphasis {
+      background: var(--tag-theme, var(--theme-method));
+      border-color: var(--tag-theme, var(--theme-method));
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    section[aria-labelledby="projets"] .project-card {
+      border-color: rgba(255, 255, 255, 0.14);
+      border-left-color: var(--hero-accent);
+      background: rgba(255, 255, 255, 0.08);
+      color: #eef4ef;
+      box-shadow: none;
+    }
+
+    section[aria-labelledby="projets"] .project-card:hover,
+    section[aria-labelledby="projets"] .project-card.is-open,
+    section[aria-labelledby="projets"] .project-card.featured {
+      border-color: rgba(255, 255, 255, 0.18);
+      border-left-color: var(--hero-accent);
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: none;
+    }
+
+    section[aria-labelledby="projets"] .project-title-row h3,
+    section[aria-labelledby="projets"] .summary,
+    section[aria-labelledby="projets"] .detail-grid dd {
+      color: #eef4ef;
+    }
+
+    section[aria-labelledby="projets"] .date,
+    section[aria-labelledby="projets"] .detail-grid dt {
+      color: #d6e7dd;
+    }
+
+    section[aria-labelledby="projets"] .date a {
+      color: #ffffff;
+      text-decoration-color: rgba(255, 255, 255, 0.48);
+    }
+
+    section[aria-labelledby="projets"] .impact-line {
+      color: #ffffff;
+    }
+
+    section[aria-labelledby="projets"] .project-detail {
+      border-color: rgba(255, 255, 255, 0.16);
+      border-left-color: var(--hero-accent);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    section[aria-labelledby="projets"] .tag {
+      border-color: rgba(255, 255, 255, 0.22);
+      background: rgba(255, 255, 255, 0.08);
+      color: #eef4ef;
+    }
+
+    section[aria-labelledby="projets"] .tag.emphasis {
+      border-color: var(--hero-accent);
+      background: var(--hero-accent);
+      color: #fffaf8;
+    }
+
+    section[aria-labelledby="projets"] .toggle-detail {
+      border-color: rgba(255, 255, 255, 0.32);
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+    }
+
+    section[aria-labelledby="projets"] .toggle-detail:hover,
+    section[aria-labelledby="projets"] .toggle-detail:focus-visible {
+      border-color: var(--hero-accent);
+      background: var(--hero-accent);
+      color: #fffaf8;
+    }
+
+    /* Stack */
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .stack-group {
+      --stack-theme: var(--theme-method);
+      --stack-soft: var(--theme-method-soft);
+      --tag-theme: var(--stack-theme);
+      grid-column: span 2;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-top: 3px solid var(--stack-theme);
+      border-radius: 6px;
+      background: var(--surface);
+      background:
+        linear-gradient(180deg, color-mix(in srgb, var(--stack-soft) 12%, #ffffff), #ffffff 76%),
+        var(--surface);
+    }
+
+    .stack-group:nth-child(n+4) {
+      grid-column: span 3;
+    }
+
+    .stack-group:nth-child(1) {
+      --stack-theme: var(--theme-ai);
+      --stack-soft: var(--theme-ai-soft);
+    }
+
+    .stack-group:nth-child(2) {
+      --stack-theme: var(--theme-open);
+      --stack-soft: var(--theme-open-soft);
+    }
+
+    .stack-group:nth-child(3) {
+      --stack-theme: var(--theme-api);
+      --stack-soft: var(--theme-api-soft);
+    }
+
+    .stack-group:nth-child(4) {
+      --stack-theme: var(--theme-production);
+      --stack-soft: var(--theme-production-soft);
+    }
+
+    .stack-group:nth-child(5) {
+      --stack-theme: var(--theme-method);
+      --stack-soft: var(--theme-method-soft);
+    }
+
+    .stack-group h3 {
+      margin-bottom: 8px;
+      color: #1a211e;
+      font-size: var(--type-card-title);
+      font-weight: 760;
+    }
+
+    .stack-group ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .stack-group .tag {
+      padding: 6px 10px;
+      font-size: var(--type-sm);
+    }
+
+    .stack-group .tag:not(.emphasis) {
+      border-color: #e4e9e4;
+      background: rgba(255, 255, 255, 0.72);
+      color: #66716b;
+      font-weight: 500;
+    }
+
+    section[aria-labelledby="stack"] .stack-group {
+      border-color: rgba(255, 255, 255, 0.14);
+      border-top: 0;
+      border-left: 3px solid var(--hero-accent);
+      border-radius: 0 6px 6px 0;
+      background: rgba(255, 255, 255, 0.08);
+      color: #eef4ef;
+      box-shadow: none;
+    }
+
+    section[aria-labelledby="stack"] .stack-group h3 {
+      color: #ffffff;
+    }
+
+    section[aria-labelledby="stack"] .stack-group .tag {
+      border-color: rgba(255, 255, 255, 0.22);
+      background: rgba(255, 255, 255, 0.08);
+      color: #eef4ef;
+    }
+
+    section[aria-labelledby="stack"] .stack-group .tag.emphasis {
+      border-color: var(--hero-accent);
+      background: var(--hero-accent);
+      color: #fffaf8;
+    }
+
+    section[aria-labelledby="production-marques"] {
+      background: var(--surface);
+      color: var(--ink);
+    }
+
+    section[aria-labelledby="production-marques"] .compact-card {
+      border: 0;
+      border-radius: var(--radius);
+      background: var(--surface-soft);
+      color: #27332e;
+      box-shadow: none;
+    }
+
+    section[aria-labelledby="production-marques"] .compact-card h2 {
+      color: var(--graphite);
+    }
+
+    section[aria-labelledby="production-marques"] .compact-card p {
+      color: #27332e;
+    }
+
+    section[aria-labelledby="production-marques"] .tag {
+      border-color: #dce2dc;
+      background: var(--surface);
+      color: #56615c;
+    }
+
+    section[aria-labelledby="production-marques"] .tag.emphasis {
+      border-color: var(--hero-accent);
+      background: var(--hero-accent);
+      color: #fffaf8;
+    }
+
+    /* Experience */
+    .compact-card,
+    .experience-card {
+      padding: 16px 18px;
+      border: 0;
+      background: var(--surface-soft);
+      box-shadow: none;
+    }
+
+    .compact-card {
+      --card-theme: var(--theme-production);
+      --card-soft: var(--theme-production-soft);
+      --tag-theme: var(--card-theme);
+      border-top: 2px solid var(--card-theme);
+      background: var(--surface);
+      background:
+        linear-gradient(180deg, color-mix(in srgb, var(--card-soft) 10%, #ffffff), #ffffff 78%),
+        var(--surface);
+      box-shadow: none;
+    }
+
+    .compact-card p,
+    .experience-card p {
+      margin: 8px 0 0;
+      color: #27332e;
+      font-size: var(--type-body);
+      line-height: 1.48;
+    }
+
+    .compact-card .tag-list {
+      margin-top: 10px;
+    }
+
+    .posture-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .posture-list li strong {
+      display: block;
+      margin-bottom: 2px;
+      color: var(--graphite);
+      font-size: var(--type-body);
+    }
+
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .link-card {
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--surface-soft);
+      font-size: var(--type-body);
+      overflow-wrap: anywhere;
+    }
+
+    .link-card span {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: var(--type-xs);
+    }
+
+    section[aria-labelledby="formation-liens"] {
+      background: #b04a3f;
+      color: #fffaf8;
+    }
+
+    section[aria-labelledby="formation-liens"] h2 {
+      color: #ffffff;
+    }
+
+    section[aria-labelledby="formation-liens"] p {
+      color: #fff3f0;
+      font-weight: 400;
+    }
+
+    section[aria-labelledby="formation-liens"] .link-card {
+      border-color: rgba(255, 255, 255, 0.54);
+      background: #ffffff;
+      color: #7c3029;
+    }
+
+    section[aria-labelledby="formation-liens"] .link-card span {
+      color: #7c3029;
+    }
+
+    section[aria-labelledby="formation-liens"] .link-card a {
+      color: #7c3029;
+      text-decoration-color: rgba(124, 48, 41, 0.38);
+    }
+
+    section[aria-labelledby="formation-liens"] .link-card a:hover {
+      text-decoration-color: currentColor;
+    }
+
+    /* Intent note */
+    body.intent-note-open {
+      overflow: hidden;
+    }
+
+    .intent-section {
+      padding: 0;
+      overflow: hidden;
+      background: #b04a3f;
+      color: #fffaf8;
+    }
+
+    .intent-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 22px 24px;
+      border-left: 0;
+    }
+
+    .intent-card h2 {
+      max-width: 620px;
+      color: #ffffff;
+      font-size: var(--type-section-title);
+      font-weight: 780;
+    }
+
+    .intent-card p:not(.intent-kicker) {
+      max-width: 690px;
+      margin: 8px 0 0;
+      color: #fff3f0;
+      font-size: var(--type-body);
+      line-height: 1.52;
+    }
+
+    .intent-section .intent-kicker {
+      color: #ffe0da;
+      font-family: var(--sans);
+      font-size: var(--type-section-title);
+      font-weight: 780;
+      line-height: 1.12;
+      text-transform: none;
+    }
+
+    .intent-kicker {
+      margin: 0 0 5px;
+      color: var(--theme-method-ink);
+      font-family: var(--mono);
+      font-size: var(--type-xs);
+      font-weight: 760;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .intent-button {
+      flex: 0 0 auto;
+      min-height: 40px;
+      padding: 9px 13px;
+      border: 1px solid rgba(255, 255, 255, 0.54);
+      border-radius: 6px;
+      background: #ffffff;
+      color: #7c3029;
+      font-size: var(--type-sm);
+      font-weight: 740;
+      cursor: pointer;
+      box-shadow: 0 1px 0 rgba(12, 19, 16, 0.04);
+    }
+
+    .intent-button:hover,
+    .intent-button:focus-visible {
+      border-color: #ffffff;
+      background: #fff3f0;
+      color: #7c3029;
+    }
+
+    .intent-dialog {
+      width: min(840px, calc(100vw - 32px));
+      max-height: min(86vh, 780px);
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: var(--ink);
+      overflow: visible;
+      z-index: 80;
+    }
+
+    .intent-dialog:not([open]):not(.is-open) {
+      display: none;
+    }
+
+    .intent-dialog::backdrop {
+      background: rgba(13, 18, 16, 0.36);
+    }
+
+    .intent-dialog.is-open {
+      position: fixed;
+      inset: 50% auto auto 50%;
+      display: block;
+      transform: translate(-50%, -50%);
+    }
+
+    .intent-dialog.is-open::before {
+      content: "";
+      position: fixed;
+      inset: -100vh -100vw;
+      background: rgba(13, 18, 16, 0.36);
+      z-index: -1;
+    }
+
+    .intent-dialog__inner {
+      position: relative;
+      max-height: min(86vh, 780px);
+      overflow-y: auto;
+      border: 1px solid rgba(174, 187, 178, 0.86);
+      border-radius: var(--radius);
+      background: #fbfcfb;
+      box-shadow: 0 22px 62px rgba(7, 12, 10, 0.24);
+      scrollbar-width: thin;
+      scrollbar-color: rgba(176, 74, 63, 0.42) transparent;
+    }
+
+    .intent-dialog__close {
+      position: sticky;
+      top: 14px;
+      float: right;
+      display: inline-grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      margin: 14px 14px 0 10px;
+      padding: 0;
+      border: 1px solid rgba(176, 74, 63, 0.36);
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.94);
+      color: var(--graphite);
+      font-size: 1.3rem;
+      line-height: 1;
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    .intent-dialog__close:hover,
+    .intent-dialog__close:focus-visible {
+      border-color: rgba(176, 74, 63, 0.64);
+      background: var(--theme-method-soft);
+    }
+
+    .intent-dialog__content {
+      padding: 34px 44px 40px;
+    }
+
+    .intent-dialog__content h2 {
+      max-width: 700px;
+      color: var(--graphite);
+      font-size: clamp(1.45rem, 2vw, 1.9rem);
+      font-weight: 820;
+    }
+
+    .intent-dialog__content p {
+      margin: 16px 0 0;
+      color: #25302c;
+      font-size: 1rem;
+      line-height: 1.72;
+    }
+
+    .intent-dialog__content code {
+      padding: 1px 5px;
+      border: 1px solid rgba(176, 74, 63, 0.24);
+      border-radius: 4px;
+      background: var(--theme-method-soft);
+      color: #18372c;
+      font-family: var(--mono);
+      font-size: 0.9em;
+    }
+
+    /* Easter egg */
+    .egx-shell {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 20;
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr) auto;
+      width: min(360px, calc(100vw - 28px));
+      max-height: min(360px, calc(100vh - 34px));
+      overflow: hidden;
+      border: 1px solid rgba(176, 74, 63, 0.28);
+      border-radius: var(--radius);
+      background: rgba(13, 18, 16, 0.96);
+      color: #d8efe0;
+      box-shadow: 0 14px 40px rgba(7, 12, 10, 0.22);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      line-height: 1.45;
+    }
+
+    .egx-shell[hidden] {
+      display: none;
+    }
+
+    .egx-shell__bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      min-height: 34px;
+      padding: 7px 9px;
+      border-bottom: 1px solid rgba(176, 74, 63, 0.14);
+      background: rgba(255, 255, 255, 0.035);
+      color: #9fcfb0;
+      font-size: 0.68rem;
+      font-weight: 700;
+    }
+
+    .egx-shell__close {
+      display: inline-grid;
+      place-items: center;
+      width: 24px;
+      height: 24px;
+      padding: 0;
+      border: 1px solid rgba(216, 239, 224, 0.18);
+      border-radius: 5px;
+      background: transparent;
+      color: #c8ded0;
+      cursor: pointer;
+    }
+
+    .egx-shell__close:hover,
+    .egx-shell__close:focus-visible {
+      border-color: rgba(176, 74, 63, 0.52);
+      color: #ffffff;
+    }
+
+    .egx-shell__output {
+      min-height: 118px;
+      max-height: 246px;
+      overflow-y: auto;
+      padding: 10px 11px;
+      color: #cfe6d7;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(176, 74, 63, 0.45) transparent;
+    }
+
+    .egx-shell__line {
+      margin: 0 0 4px;
+      overflow-wrap: anywhere;
+      white-space: pre-wrap;
+    }
+
+    .egx-shell__line--command {
+      color: #b04a3f;
+    }
+
+    /* Easter egg operator card */
+    .operator-card {
+      display: grid;
+      grid-template-columns: 76px minmax(0, 1fr);
+      gap: 10px;
+      width: min(100%, 318px);
+      margin: 8px 0 10px;
+      padding: 10px;
+      border: 1px solid rgba(176, 74, 63, 0.28);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.045);
+      color: #d8efe0;
+    }
+
+    .operator-card-media {
+      display: grid;
+      place-items: center;
+      width: 76px;
+      aspect-ratio: 1;
+      overflow: hidden;
+      border: 1px solid rgba(216, 239, 224, 0.16);
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .operator-card-media img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .operator-card-title {
+      margin: 1px 0 5px;
+      color: #ffffff;
+      font-size: 0.7rem;
+      font-weight: 780;
+      letter-spacing: 0;
+    }
+
+    .operator-card-meta,
+    .operator-card-status,
+    .operator-card-fallback {
+      margin: 0 0 3px;
+      color: #b9d6c4;
+      font-size: 0.66rem;
+      line-height: 1.4;
+      overflow-wrap: anywhere;
+    }
+
+    .operator-card-status {
+      color: #b04a3f;
+    }
+
+    .operator-card-fallback {
+      display: none;
+      color: #f2d49b;
+    }
+
+    .operator-card.is-failed .operator-card-media img {
+      display: none;
+    }
+
+    .operator-card.is-failed .operator-card-fallback {
+      display: block;
+    }
+
+    .egx-shell__form {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      align-items: center;
+      gap: 6px;
+      padding: 8px 10px 10px;
+      border-top: 1px solid rgba(176, 74, 63, 0.14);
+      background: rgba(0, 0, 0, 0.18);
+    }
+
+    .egx-shell__prompt {
+      color: #b04a3f;
+      font-weight: 700;
+    }
+
+    .egx-shell__input {
+      width: 100%;
+      min-width: 0;
+      border: 0;
+      border-radius: 4px;
+      background: transparent;
+      color: #eef8f0;
+      font: inherit;
+      outline: none;
+    }
+
+    .egx-shell__input::placeholder {
+      color: rgba(216, 239, 224, 0.38);
+    }
+
+    .egx-shell__input:focus-visible {
+      outline: 1px solid rgba(176, 74, 63, 0.72);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* Easter egg debug overlay */
+    .debug-overlay {
+      position: fixed;
+      left: 14px;
+      bottom: 14px;
+      z-index: 19;
+      display: none;
+      width: min(300px, calc(100vw - 28px));
+      padding: 10px 11px;
+      border: 1px solid rgba(176, 74, 63, 0.26);
+      border-radius: var(--radius);
+      background: rgba(13, 18, 16, 0.95);
+      color: #cfe6d7;
+      box-shadow: 0 10px 28px rgba(7, 12, 10, 0.18);
+      font-family: var(--mono);
+      font-size: 0.67rem;
+      line-height: 1.45;
+      pointer-events: none;
+    }
+
+    .debug-overlay.is-visible {
+      display: block;
+    }
+
+    .debug-overlay-title {
+      margin: 0 0 5px;
+      color: #b04a3f;
+      font-weight: 700;
+    }
+
+    .debug-overlay-list {
+      display: grid;
+      gap: 3px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-side {
+        grid-template-columns: 104px minmax(0, 1fr);
+      }
+
+      .avatar-box {
+        justify-self: start;
+      }
+
+      .metrics,
+      .projects,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card.featured {
+        grid-column: span 1;
+      }
+
+      .stack-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .stack-group,
+      .stack-group:nth-child(n+4) {
+        grid-column: auto;
+      }
+
+      .posture-list {
+        grid-template-columns: 1fr;
+      }
+
+      .project-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .project-actions {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      .intent-card {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 640px) {
+      html,
+      body {
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
+      .page {
+        width: calc(100% - 16px);
+        max-width: 1060px;
+        padding: 8px 0 28px;
+      }
+
+      .hero,
+      .section {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        padding: 16px;
+      }
+
+      .identity,
+      .hero-side,
+      .project-card,
+      .compact-card,
+      .experience-card,
+      .stack-group,
+      .link-card {
+        min-width: 0;
+      }
+
+      .hero-side,
+      .metrics,
+      .contact-grid,
+      .stack-grid,
+      .links-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: clamp(2rem, 12vw, 2.55rem);
+      }
+
+      .title {
+        font-size: 1rem;
+        line-height: 1.34;
+      }
+
+      .title,
+      .lead,
+      .section-note,
+      .summary,
+      .value-list li,
+      .posture-list li,
+      .project-title-row h3,
+      .detail-grid dd,
+      .compact-card p,
+      .experience-card p,
+      .link-card {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+      }
+
+      .pill {
+        white-space: normal;
+      }
+
+      .section-header,
+      .project-title-row,
+      .project-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .section-header,
+      .project-header {
+        gap: 8px;
+      }
+
+      .project-actions {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      .control-button,
+      .filter-button {
+        min-width: 0;
+        min-height: 40px;
+        padding: 7px 10px;
+      }
+
+      .toggle-detail {
+        min-height: 40px;
+        padding: 7px 10px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .project-filters .filter-button {
+        flex: 0 1 auto;
+        padding-inline: 7px;
+      }
+
+      .detail-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card {
+        gap: 12px;
+        padding: 18px;
+      }
+
+      .project-card.featured {
+        padding: 19px;
+      }
+
+      .intent-card {
+        padding: 18px;
+      }
+
+      .intent-card h2,
+      .intent-card p:not(.intent-kicker) {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+      }
+
+      .intent-button {
+        width: 100%;
+      }
+
+      .intent-dialog {
+        width: calc(100vw - 16px);
+        max-height: calc(100svh - 16px);
+      }
+
+      .intent-dialog__inner {
+        max-height: calc(100svh - 16px);
+      }
+
+      .intent-dialog__content {
+        padding: 26px 20px 30px;
+      }
+
+      .intent-dialog__close {
+        top: 10px;
+        margin: 10px 10px 0 8px;
+      }
+
+      .egx-shell {
+        right: 8px;
+        bottom: 8px;
+        width: calc(100vw - 16px);
+        max-height: min(340px, calc(100vh - 16px));
+      }
+
+      .operator-card {
+        grid-template-columns: 64px minmax(0, 1fr);
+      }
+
+      .operator-card-media {
+        width: 64px;
+      }
+
+      .debug-overlay {
+        left: 8px;
+        bottom: 8px;
+        width: min(280px, calc(100vw - 16px));
+      }
+    }
+
+    /* Print */
+    @media print {
+      :root {
+        --paper: #ffffff;
+        --surface: #ffffff;
+        --surface-soft: #ffffff;
+        --ink: #111817;
+        --muted: #4f5552;
+        --line: #d7dcd8;
+        --line-strong: #9da39f;
+        --graphite: #111817;
+        --hero-1: #ffffff;
+        --hero-2: #ffffff;
+        --hero-accent: #cfd8d1;
+        --theme-ai: #666666;
+        --theme-ai-soft: #ffffff;
+        --theme-ai-ink: #111817;
+        --theme-open: #666666;
+        --theme-open-soft: #ffffff;
+        --theme-open-ink: #111817;
+        --theme-api: #666666;
+        --theme-api-soft: #ffffff;
+        --theme-api-ink: #111817;
+        --theme-production: #666666;
+        --theme-production-soft: #ffffff;
+        --theme-production-ink: #111817;
+        --theme-formation: #666666;
+        --theme-formation-soft: #ffffff;
+        --theme-formation-ink: #111817;
+        --theme-method: #666666;
+        --theme-method-soft: #ffffff;
+        --theme-method-ink: #111817;
+        --green: #111817;
+      }
+
+      @page {
+        size: A4;
+        margin: 8mm;
+      }
+
+      html,
+      body {
+        background: #ffffff !important;
+        color: #111817;
+        font-size: 8.6pt;
+        line-height: 1.25;
+      }
+
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        filter: grayscale(100%);
+      }
+
+      *,
+      *::before,
+      *::after {
+        background: #ffffff !important;
+        color: #111817 !important;
+        border-color: #d7dcd8 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+      }
+
+      a {
+        color: #111817 !important;
+        text-decoration-color: #111817 !important;
+      }
+
+      img {
+        filter: grayscale(100%) !important;
+      }
+
+      .page {
+        width: 100%;
+        padding: 0;
+      }
+
+      .shell {
+        gap: 5px;
+      }
+
+      .project-actions,
+      .project-filters,
+      .skip-link,
+      .toggle-detail,
+      .intent-section,
+      section[aria-labelledby="posture"],
+      section[aria-labelledby="formation-liens"],
+      .intent-dialog,
+      .egx-shell,
+      .operator-card,
+      .debug-overlay {
+        display: none !important;
+      }
+
+      .hero,
+      .project-card,
+      .compact-card,
+      .experience-card,
+      .stack-group,
+      .link-card {
+        box-shadow: none !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .hero {
+        grid-template-columns: minmax(0, 1fr) 220px;
+        gap: 10px;
+        padding: 8px 10px;
+        background: #ffffff !important;
+        color: #111817 !important;
+        border-color: #cfd8d1 !important;
+      }
+
+      .hero::before {
+        display: none !important;
+        background: transparent !important;
+        border-top-color: #cfd8d1 !important;
+      }
+
+      .hero h1,
+      .title,
+      .lead,
+      .contact-grid,
+      .contact-grid a {
+        color: #111817 !important;
+      }
+
+      .eyebrow,
+      .contact-grid span,
+      .metric-label {
+        color: #55615b !important;
+      }
+
+      .avatar-box {
+        width: 56px;
+        font-size: 1rem;
+        background: #ffffff !important;
+        color: #111817 !important;
+        border-color: #cfd8d1 !important;
+      }
+
+      .metrics {
+        gap: 4px;
+      }
+
+      .metric {
+        padding: 3px 5px;
+        background: #ffffff !important;
+        border-color: #cfd8d1 !important;
+      }
+
+      .metric strong {
+        color: #111817 !important;
+      }
+
+      .cli-line {
+        padding: 3px 5px;
+        border-color: #b9c4bc !important;
+        background: #ffffff !important;
+        color: #26302c !important;
+      }
+
+      h1 {
+        font-size: 22pt;
+      }
+
+      .title {
+        margin: 4px 0 5px;
+        font-size: 10.5pt;
+      }
+
+      .lead,
+      .summary,
+      .impact-line,
+      .compact-card p,
+      .experience-card p {
+        font-size: 8.2pt;
+      }
+
+      .hero-meta {
+        margin-top: 6px;
+      }
+
+      .pill {
+        background: #ffffff !important;
+        border-color: #dce3dc !important;
+        color: #55615b !important;
+      }
+
+      .contact-grid {
+        margin-top: 6px;
+        gap: 2px 8px;
+      }
+
+      .section {
+        padding: 7px 9px;
+        margin-top: 0;
+      }
+
+      .section-header {
+        margin-bottom: 5px;
+        break-after: avoid;
+        page-break-after: avoid;
+      }
+
+      .section h2,
+      .compact-card h2,
+      .experience-card h2 {
+        font-size: 10.4pt;
+      }
+
+      .projects {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 5px;
+      }
+
+      .project-card {
+        gap: 4px;
+        padding: 7px 9px;
+        transform: none !important;
+        background: #ffffff !important;
+      }
+
+      .project-card.featured {
+        grid-column: span 2;
+        border-left-width: 3px;
+        padding: 8px 9px;
+      }
+
+      .project-detail,
+      .project-card.featured .project-detail {
+        display: none !important;
+      }
+
+      .detail-grid {
+        grid-template-columns: 72px minmax(0, 1fr);
+        gap: 2px 6px;
+        font-size: 7.7pt;
+      }
+
+      .project-title-row h3 {
+        font-size: 9.2pt !important;
+      }
+
+      .impact-line {
+        margin-top: -1px;
+        line-height: 1.2;
+      }
+
+      .summary {
+        line-height: 1.25;
+      }
+
+      .project-card .tag-list {
+        gap: 2px;
+        margin-top: 0;
+      }
+
+      .date,
+      .detail-grid dt,
+      .metric-label,
+      .contact-grid span {
+        font-size: 6.8pt;
+      }
+
+      .value-list,
+      .posture-list {
+        gap: 4px;
+      }
+
+      .value-list li,
+      .posture-list li {
+        padding: 5px 7px;
+        font-size: 8pt;
+      }
+
+      .compact-card,
+      .experience-card,
+      .stack-group,
+      .link-card {
+        padding: 6px 8px;
+        background: #ffffff !important;
+      }
+
+      .section-note {
+        font-size: 7.8pt;
+        line-height: 1.25;
+      }
+
+      .tag {
+        min-height: 0;
+        padding: 0 4px;
+        border: 1px solid #d9ded9;
+        background: #ffffff !important;
+        font-size: 6.6pt;
+      }
+
+      .tag-list {
+        gap: 2px;
+      }
+
+      .project-card .tag-list .tag:nth-child(n+4),
+      .compact-card .tag-list .tag:nth-child(n+4) {
+        display: none;
+      }
+
+      .tag.emphasis {
+        background: #ffffff !important;
+        border-color: #111817 !important;
+        color: #111817 !important;
+      }
+
+      .stack-grid {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 3px;
+      }
+
+      .stack-group {
+        padding: 5px 6px;
+        background: #ffffff !important;
+      }
+
+      .stack-group:nth-child(n+4) {
+        grid-column: span 3;
+      }
+
+      .stack-group h3 {
+        margin-bottom: 4px;
+        font-size: 8.2pt;
+      }
+
+      .stack-group ul {
+        gap: 2px;
+      }
+
+      .stack-group .tag {
+        padding: 0 2px;
+        font-size: 5.95pt;
+        line-height: 1.32;
+      }
+
+      .hero,
+      .section,
+      .project-card,
+      .compact-card,
+      .experience-card,
+      .stack-group,
+      .link-card,
+      .metric,
+      .pill,
+      .tag,
+      .value-list li,
+      .posture-list li,
+      .cli-line {
+        background: #ffffff !important;
+        color: #111817 !important;
+        border-color: #d7dcd8 !important;
+      }
+
+      .hero h1,
+      .hero .title,
+      .hero .lead,
+      .hero .contact-grid,
+      .hero .contact-grid a,
+      .metric strong,
+      .project-title-row h3,
+      .section h2,
+      .compact-card h2,
+      .experience-card h2 {
+        color: #111817 !important;
+      }
+
+      .eyebrow,
+      .contact-grid span,
+      .metric-label,
+      .date,
+      .section-note,
+      .tag:not(.emphasis),
+      .detail-grid dt {
+        color: #4f5552 !important;
+      }
+
+      .project-card,
+      .project-card.featured,
+      .compact-card,
+      .stack-group,
+      .value-list li,
+      .posture-list li {
+        border-left-color: #9da39f !important;
+        border-top-color: #9da39f !important;
+      }
+
+      .project-card .impact-line {
+        display: none !important;
+      }
+
+      .project-card .project-detail,
+      .project-card.featured .project-detail {
+        display: block !important;
+        margin-top: 1px;
+        padding: 0;
+        border: 0 !important;
+      }
+
+      .project-card .detail-grid {
+        display: grid;
+        grid-template-columns: 36px minmax(0, 1fr);
+        gap: 0 4px;
+        font-size: 6.9pt;
+        line-height: 1.18;
+      }
+
+      .project-card .detail-grid dt,
+      .project-card .detail-grid dd {
+        display: none;
+      }
+
+      .project-card .detail-grid dt:nth-of-type(3),
+      .project-card .detail-grid dd:nth-of-type(3),
+      .project-card .detail-grid dt:nth-of-type(5),
+      .project-card .detail-grid dd:nth-of-type(5) {
+        display: block;
+      }
+
+      .project-card .detail-grid dt:nth-of-type(3)::after,
+      .project-card .detail-grid dt:nth-of-type(5)::after {
+        content: " :";
+      }
+
+      .links-grid,
+      .grid-2 {
+        gap: 5px;
+      }
+
+      a[href]::after {
+        content: "" !important;
+      }
+    }
+  </style>
+</head>
+<body class="no-js">
+  <a class="skip-link" href="#projets">Aller aux projets clés</a>
+  <main class="page">
+    <div class="shell">
+      <header class="hero">
+        <div class="identity">
+          <span class="eyebrow">ElGrandeXu / EGX</span>
+          <h1>Maxime ERARD</h1>
+          <p class="title">Consultant IA générative · workflows open source</p>
+          <p class="lead">Je construis des outils IA utilisables par de vraies équipes : automatisation, APIs, open source, image, vidéo et documentation de production.</p>
+
+          <div class="hero-meta" aria-label="Informations principales">
+            <span class="pill">Bordeaux · Remote · Hybride</span>
+            <span class="pill">CDD / CDI</span>
+            <span class="pill">Disponible rapidement · prise de poste à discuter</span>
+          </div>
+
+          <address class="contact-grid">
+            <span>Email</span>
+            <a href="mailto:max.erard.ime@gmail.com">max.erard.ime@gmail.com</a>
+            <span>Téléphone</span>
+            <a href="tel:+33624948856">06 24 94 88 56</a>
+            <span>LinkedIn</span>
+            <a href="https://www.linkedin.com/in/elgrandexu/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Maxime ERARD, ouvre dans un nouvel onglet">linkedin.com/in/elgrandexu</a>
+            <span>GitHub</span>
+            <a href="https://github.com/ElGrandeXu" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Maxime ERARD, ouvre dans un nouvel onglet">github.com/ElGrandeXu</a>
+            <span>Instagram</span>
+            <a href="https://www.instagram.com/elgrandexu/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Maxime ERARD, ouvre dans un nouvel onglet">instagram.com/elgrandexu</a>
+          </address>
+        </div>
+
+        <aside class="hero-side" aria-label="Indicateurs clés">
+          <div class="avatar-box">
+            <img src="data:image/webp;base64,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" alt="Portrait de Maxime ERARD">
+          </div>
+          <div class="metrics">
+            <div class="metric"><strong>5 ans</strong><span class="metric-label">freelance</span></div>
+            <div class="metric"><strong>15+</strong><span class="metric-label">clients / structures</span></div>
+            <div class="metric"><strong>500+</strong><span class="metric-label">étudiants formés</span></div>
+            <div class="metric"><strong>4 ans</strong><span class="metric-label">collaboration Asphalte</span></div>
+          </div>
+          <div class="cli-line">local-first · api-ready · open-source</div>
+        </aside>
+      </header>
+
+      <section class="section" aria-labelledby="domaines-intervention">
+        <div class="section-header">
+          <h2 id="domaines-intervention">Domaines d’intervention</h2>
+        </div>
+        <ul class="value-list grid-2">
+          <li>Partir d’une friction métier réelle avant de choisir un outil ou un modèle.</li>
+          <li>Concevoir des workflows IA fiables, documentés et utilisables par une équipe non technique.</li>
+          <li>Prototyper avec des briques API, open source et local-first quand elles sont pertinentes.</li>
+          <li>Faire le lien entre production créative, contraintes produit, équipes dev et décision métier.</li>
+          <li>Réduire la dépendance aux plateformes fermées en gardant le contrôle sur les coûts, les données et les process.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="postes">
+        <div class="section-header">
+          <h2 id="postes">Rôles ciblés</h2>
+        </div>
+        <ul class="roles">
+          <li>Consultant IA générative</li>
+          <li>Consultant innovation IA / open source</li>
+          <li>Creative Technologist IA</li>
+          <li>Profil hybride IA / API / automatisation</li>
+          <li>Lead IA appliquée / workflows métier</li>
+        </ul>
+      </section>
+
+      <section class="section intent-section" aria-labelledby="intent-title">
+        <div class="intent-card">
+          <div>
+            <p class="intent-kicker">Note d’intention</p>
+            <h2 id="intent-title">Pourquoi je construis des workflows IA maîtrisables</h2>
+            <p>Ce CV montre ce que je sais faire. Cette note explique pourquoi je travaille comme ça : dépendance aux plateformes, coût réel des modèles, APIs, open source, local-first et workflows documentés.</p>
+          </div>
+          <button class="intent-button" type="button" id="openIntentNote">Lire la note</button>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="projets">
+        <div class="section-header project-header">
+          <div>
+            <h2 id="projets">Projets clés</h2>
+            <p class="section-note">Vue synthétique en 20 secondes. Détails disponibles par carte.</p>
+          </div>
+
+          <div class="project-actions" aria-label="Actions des projets">
+            <button class="control-button" type="button" id="openAll">Tout développer</button>
+            <button class="control-button" type="button" id="closeAll">Tout réduire</button>
+            <button class="control-button" type="button" id="printCv">Imprimer / PDF</button>
+          </div>
+        </div>
+
+        <nav class="project-filters" aria-label="Filtres par axe">
+          <span class="filter-label">Filtrer :</span>
+          <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">Tous</button>
+          <button class="filter-button" type="button" data-filter="produit-ia" aria-pressed="false">Produit IA</button>
+          <button class="filter-button" type="button" data-filter="open-source" aria-pressed="false">Open source</button>
+          <button class="filter-button" type="button" data-filter="production" aria-pressed="false">Production</button>
+          <button class="filter-button" type="button" data-filter="formation" aria-pressed="false">Formation</button>
+        </nav>
+
+        <div class="projects" id="projectGrid">
+          <article class="project-card featured" data-tags="produit-ia production" id="project-minimood">
+            <div class="project-top">
+              <div class="project-title-row">
+                <div>
+                  <h3>Minimood · CTO / Architecte IA &amp; Directeur Général</h3>
+                  <span class="date">2025–2026</span>
+                </div>
+                <button class="toggle-detail" type="button" aria-expanded="false" aria-controls="detail-minimood">Détails</button>
+              </div>
+              <p class="summary">Architecture d’un produit IA complet : génération narrative, images, paiement, suivi de jobs et livraison automatisée.</p>
+              <p class="impact-line">Pipeline produit cadré, coûts IA maîtrisés et passation prête.</p>
+              <ul class="tag-list" aria-label="Tags Minimood">
+                <li class="tag emphasis">Produit IA</li>
+                <li class="tag">n8n</li>
+                <li class="tag">OpenRouter</li>
+                <li class="tag">fal.ai</li>
+                <li class="tag">WooCommerce</li>
+              </ul>
+            </div>
+            <div class="project-detail" id="detail-minimood">
+              <dl class="detail-grid">
+                <dt>Contexte</dt><dd>Service IA de livres personnalisés pour enfants, combinant génération narrative, illustration IA et orchestration métier automatisée.</dd>
+                <dt>Problème</dt><dd>Transformer une idée produit en parcours fiable : création, paiement, suivi de jobs, livraison et espace client.</dd>
+                <dt>Solution</dt><dd>Architecture de workflows n8n multi-agents avec OpenRouter/Claude pour le texte, fal.ai/Seedream pour l’image, callbacks WordPress/WooCommerce et livraison automatisée.</dd>
+                <dt>Stack</dt><dd>n8n, OpenRouter, Claude, fal.ai, Seedream, WordPress, WooCommerce, HTML/CSS/JS vanilla.</dd>
+                <dt>Impact</dt><dd>Simplification du pipeline, workflows mock sans consommation API, documentation de passation, maîtrise des coûts IA et préparation à l’industrialisation.</dd>
+              </dl>
+            </div>
+          </article>
+
+          <article class="project-card featured" data-tags="produit-ia open-source" id="project-egx">
+            <div class="project-top">
+              <div class="project-title-row">
+                <div>
+                  <h3>EGX · Workspaces IA LLM-agnostiques &amp; ingestion open source</h3>
+                  <span class="date"><a href="https://github.com/ElGrandeXu/EGX_Ingestion" target="_blank" rel="noopener noreferrer" aria-label="Dépôt GitHub EGX_Ingestion, ouvre dans un nouvel onglet">github.com/ElGrandeXu/EGX_Ingestion</a></span>
+                </div>
+                <button class="toggle-detail" type="button" aria-expanded="false" aria-controls="detail-egx">Détails</button>
+              </div>
+              <p class="summary">CLI Python MIT pour structurer ingestion, mémoire, exports MCP/JSON/Markdown et workflows IA portables.</p>
+              <p class="impact-line">Workflows IA portables, documentés et indépendants d’un fournisseur.</p>
+              <ul class="tag-list" aria-label="Tags EGX">
+                <li class="tag emphasis">Open source</li>
+                <li class="tag">Python</li>
+                <li class="tag">CLI</li>
+                <li class="tag">MCP</li>
+                <li class="tag">Local-first</li>
+              </ul>
+            </div>
+            <div class="project-detail" id="detail-egx">
+              <dl class="detail-grid">
+                <dt>Contexte</dt><dd>Workspaces IA local-first pour structurer des workflows agents, mémoire, ingestion de sources et automatisation documentaire.</dd>
+                <dt>Problème</dt><dd>Garder des workflows IA portables, documentés et maîtrisables, sans dépendre d’un fournisseur unique.</dd>
+                <dt>Solution</dt><dd>Développement de EGX_Ingestion, CLI Python open source MIT avec exports Markdown/JSON/YAML/MCP et logique de validation workspace.</dd>
+                <dt>Stack</dt><dd>Python, CLI, JSON, YAML, Markdown, MCP, GitHub, logique LLM-agnostique.</dd>
+                <dt>Impact</dt><dd>Preuve de méthode : open source, maintenabilité, interopérabilité, documentation, sobriété de contexte, coûts maîtrisés et intégration métier.</dd>
+              </dl>
+            </div>
+          </article>
+
+          <article class="project-card" data-tags="produit-ia production" id="project-asphalte">
+            <div class="project-top">
+              <div class="project-title-row">
+                <div>
+                  <h3>Asphalte · Workflows IA générative pour questionnaires clients</h3>
+                  <span class="date">Collaboration récurrente depuis plusieurs années</span>
+                </div>
+                <button class="toggle-detail" type="button" aria-expanded="false" aria-controls="detail-asphalte">Détails</button>
+              </div>
+              <p class="summary">Visuels IA type photoshoot pour tester des pistes produit avant engagement de production.</p>
+              <p class="impact-line">Décisions produit plus rapides avant coûts de shooting.</p>
+              <ul class="tag-list" aria-label="Tags Asphalte">
+                <li class="tag emphasis">Marque</li>
+                <li class="tag">Production visuelle</li>
+                <li class="tag">Workflow métier</li>
+                <li class="tag">Validation produit</li>
+              </ul>
+            </div>
+            <div class="project-detail" id="detail-asphalte">
+              <dl class="detail-grid">
+                <dt>Contexte</dt><dd>Questionnaires clients et validation produit dans un process de marque déjà structuré.</dd>
+                <dt>Problème</dt><dd>Tester des pistes stylistiques avant production photo, sans engager trop tôt des coûts de shooting.</dd>
+                <dt>Solution</dt><dd>Génération de visuels type photoshoot à partir de références stylistiques : garment, mannequin, environnement de marque, cohérence direction artistique.</dd>
+                <dt>Stack</dt><dd>Workflows IA générative, références visuelles, itérations contrôlées, production image.</dd>
+                <dt>Impact</dt><dd>Aide à la décision pour les équipes style, direction artistique, contenu et customer success, en complément des shootings finaux.</dd>
+              </dl>
+            </div>
+          </article>
+
+          <article class="project-card" data-tags="open-source formation" id="project-formation">
+            <div class="project-top">
+              <div class="project-title-row">
+                <div>
+                  <h3>Intervenant IA générative &amp; workflows open source pour ECV, ESP, ESD, ISCOM, Sup de Com</h3>
+                  <span class="date">Interventions récurrentes depuis 4 ans · <a href="https://github.com/ElGrandeXu/EGX_student" target="_blank" rel="noopener noreferrer" aria-label="Dépôt GitHub EGX_student, ouvre dans un nouvel onglet">EGX_student</a></span>
+                </div>
+                <button class="toggle-detail" type="button" aria-expanded="false" aria-controls="detail-formation">Détails</button>
+              </div>
+              <p class="summary">500+ étudiants formés à des workflows IA concrets, locaux et réutilisables.</p>
+              <p class="impact-line">500+ étudiants outillés avec des workflows IA réutilisables.</p>
+              <ul class="tag-list" aria-label="Tags formations">
+                <li class="tag emphasis">Formation</li>
+                <li class="tag">Open source</li>
+                <li class="tag">ComfyUI</li>
+                <li class="tag">Transmission</li>
+              </ul>
+            </div>
+            <div class="project-detail" id="detail-formation">
+              <dl class="detail-grid">
+                <dt>Contexte</dt><dd>Cours auprès d’étudiants en communication, design et marketing.</dd>
+                <dt>Problème</dt><dd>Passer d’une découverte outil à une méthode de travail concrète, réutilisable et compréhensible.</dd>
+                <dt>Solution</dt><dd>Ateliers centrés sur ComfyUI, Ollama, LM Studio, Hugging Face, GitHub, OpenCode, workflows LLM-agnostiques, méthodes de travail et culture open source.</dd>
+                <dt>Stack</dt><dd>ComfyUI, Ollama, LM Studio, Hugging Face, GitHub, OpenCode, modèles locaux.</dd>
+                <dt>Impact</dt><dd>Création d’un workspace pédagogique téléchargeable pour structurer prises de notes, mails, recherches et usages IA sans dépendre d’un seul modèle.</dd>
+              </dl>
+            </div>
+          </article>
+
+          <article class="project-card" data-tags="produit-ia production" id="project-packshot">
+            <div class="project-top">
+              <div class="project-title-row">
+                <div>
+                  <h3>Pipeline IA de génération de packshots pour Le Vestiaire / Kiosque à Pizza</h3>
+                  <span class="date">100+ recettes / variantes produits traitées</span>
+                </div>
+                <button class="toggle-detail" type="button" aria-expanded="false" aria-controls="detail-packshot">Détails</button>
+              </div>
+              <p class="summary">Pipeline IA de packshots e-commerce : variantes, retouche, upscale HD et export pour équipe non technique.</p>
+              <p class="impact-line">Variantes HD exploitables par une équipe non technique.</p>
+              <ul class="tag-list" aria-label="Tags packshots">
+                <li class="tag emphasis">API</li>
+                <li class="tag">Python</li>
+                <li class="tag">Fal.ai</li>
+                <li class="tag">E-commerce</li>
+              </ul>
+            </div>
+            <div class="project-detail" id="detail-packshot">
+              <dl class="detail-grid">
+                <dt>Contexte</dt><dd>Besoin client de visuels e-commerce cohérents à partir de recettes et variantes produit.</dd>
+                <dt>Problème</dt><dd>Produire beaucoup de variantes exploitables sans rendre le process trop technique pour l’équipe.</dd>
+                <dt>Solution</dt><dd>Workflow IA pour génération de variantes, intégration en boîte, retouche ciblée, upscale HD et export. App desktop locale en Python/pywebview intégrant OpenRouter et Fal.ai, templates, prompts contrôlés, batch JSON et packaging macOS.</dd>
+                <dt>Stack</dt><dd>Python, pywebview, OpenRouter, Fal.ai, JSON, templates, kit ChatGPT + Fal SeedVR.</dd>
+                <dt>Impact</dt><dd>Industrialisation en kit plus simple pour réduire la friction d’installation et rendre le workflow exploitable par une équipe non technique.</dd>
+              </dl>
+            </div>
+          </article>
+
+          <article class="project-card" data-tags="open-source formation" id="project-tedx">
+            <div class="project-top">
+              <div class="project-title-row">
+                <div>
+                  <h3>TEDx Bordeaux 2025 Salon #1 · Speaker “IA vs Créativité”</h3>
+                  <span class="date">15 mai 2025 · 7 speakers · 200 participants</span>
+                </div>
+                <button class="toggle-detail" type="button" aria-expanded="false" aria-controls="detail-tedx">Détails</button>
+              </div>
+              <p class="summary">Prise de parole technique sur IA, créativité, open source et modèles locaux devant 200 participants.</p>
+              <p class="impact-line">Vulgarisation IA open source auprès de 200 participants.</p>
+              <ul class="tag-list" aria-label="Tags TEDx">
+                <li class="tag emphasis">TEDx</li>
+                <li class="tag">IA</li>
+                <li class="tag">Open source</li>
+                <li class="tag">Vulgarisation</li>
+              </ul>
+            </div>
+            <div class="project-detail" id="detail-tedx">
+              <dl class="detail-grid">
+                <dt>Contexte</dt><dd>Événement consacré à l’IA et la créativité, avec 7 speakers et 200 participants.</dd>
+                <dt>Problème</dt><dd>Rendre le sujet compréhensible sans l’enfermer dans la fascination outil ou la peur abstraite.</dd>
+                <dt>Solution</dt><dd>Prise de parole centrée sur une vision pragmatique de l’IA : montée en compétence humaine, compréhension des interfaces, outils open source et modèles locaux.</dd>
+                <dt>Stack</dt><dd>Vulgarisation technique, IA générative, open source, modèles locaux.</dd>
+                <dt>Impact</dt><dd>Transmission d’une lecture terrain de l’IA auprès d’un public large, avec attention aux mécanismes derrière les interfaces.</dd>
+              </dl>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="production-marques">
+        <div class="compact-card">
+          <h2 id="production-marques">Production IA générative pour marques &amp; agences : Zest for Life, Freixenet, RamDam Social</h2>
+          <p>Création de visuels pour réseaux sociaux et campagnes de contenu, avec workflows IA locaux, modèles/checkpoints/LoRAs personnalisés et process de production cadrés. Objectif : limiter la dépendance aux plateformes fermées, réduire les coûts récurrents et garder le contrôle sur les assets, les données et la cohérence de marque.</p>
+          <ul class="tag-list" aria-label="Tags production marques">
+            <li class="tag emphasis">Production visuelle</li>
+            <li class="tag">Réseaux sociaux</li>
+            <li class="tag">Modèles locaux</li>
+            <li class="tag">LoRA</li>
+            <li class="tag">Marque</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="stack">
+        <div class="section-header">
+          <h2 id="stack">Stack</h2>
+          <p class="section-note">Outils regroupés par usage, avec priorité aux briques utiles en production.</p>
+        </div>
+        <div class="stack-grid">
+          <div class="stack-group">
+            <h3>IA / LLM / agents</h3>
+            <ul>
+              <li class="tag emphasis">ChatGPT</li>
+              <li class="tag">Claude</li>
+              <li class="tag">OpenRouter</li>
+              <li class="tag">Ollama</li>
+              <li class="tag">LM Studio</li>
+              <li class="tag">OpenCode</li>
+              <li class="tag">agents CLI</li>
+              <li class="tag">workflows LLM-agnostiques</li>
+            </ul>
+          </div>
+          <div class="stack-group">
+            <h3>Open source / image</h3>
+            <ul>
+              <li class="tag emphasis">ComfyUI</li>
+              <li class="tag">Stable Diffusion</li>
+              <li class="tag">FLUX</li>
+              <li class="tag">Hugging Face</li>
+              <li class="tag">LoRA</li>
+              <li class="tag">modèles locaux</li>
+              <li class="tag">checkpoints custom</li>
+            </ul>
+          </div>
+          <div class="stack-group">
+            <h3>Automation / API / dev</h3>
+            <ul>
+              <li class="tag emphasis">Python</li>
+              <li class="tag">Java</li>
+              <li class="tag">API</li>
+              <li class="tag">JSON</li>
+              <li class="tag">n8n</li>
+              <li class="tag">Git</li>
+              <li class="tag">GitHub</li>
+              <li class="tag">Fal.ai</li>
+              <li class="tag">OpenRouter</li>
+              <li class="tag">scripts</li>
+              <li class="tag">batch workflows</li>
+            </ul>
+          </div>
+          <div class="stack-group">
+            <h3>Production créative</h3>
+            <ul>
+              <li class="tag emphasis">Blender</li>
+              <li class="tag">DaVinci Resolve</li>
+              <li class="tag">Photoshop</li>
+              <li class="tag">Illustrator</li>
+              <li class="tag">Figma</li>
+              <li class="tag">image</li>
+              <li class="tag">vidéo</li>
+              <li class="tag">3D</li>
+            </ul>
+          </div>
+          <div class="stack-group">
+            <h3>Méthodes</h3>
+            <ul>
+              <li class="tag emphasis">local-first</li>
+              <li class="tag">open source</li>
+              <li class="tag">documentation</li>
+              <li class="tag">workflow design</li>
+              <li class="tag">prompt systems</li>
+              <li class="tag">ingestion de connaissances</li>
+              <li class="tag">token efficiency</li>
+              <li class="tag">validation</li>
+              <li class="tag">transmission équipe</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="experience">
+        <div class="experience-card">
+          <h2 id="experience">Expérience technique antérieure</h2>
+          <p><strong>RimaOne, Développeur Java / solution logicielle</strong> <span class="date">1 an et demi, avant freelance</span></p>
+          <p>Développement et maintenance d’une solution logicielle B2B destinée aux établissements d’enseignement supérieur et business schools internationales. Création de widgets personnalisés, correction de bugs et contribution à des fonctionnalités liées à la centralisation, la structuration et l’exploitation de données académiques : CV, plannings, accréditations, publications, reporting et données institutionnelles. Stack : Java, API, Python.</p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="posture">
+        <div class="section-header">
+          <h2 id="posture">Posture de travail</h2>
+        </div>
+        <ul class="posture-list">
+          <li><strong>Besoin avant outil.</strong> Comprendre la friction réelle avant de choisir un modèle, une API ou une automatisation.</li>
+          <li><strong>Production avant démo.</strong> Préférer un workflow moins spectaculaire mais documenté, testable et repris par l’équipe.</li>
+          <li><strong>Contrôle technique.</strong> Garder une porte de sortie face aux plateformes fermées : formats ouverts, modèles locaux quand utile, coûts suivis.</li>
+          <li><strong>Pont équipe-produit.</strong> Traduire les contraintes créatives, marketing et techniques en choix visibles dans le workflow.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="formation-liens">
+        <div class="grid-2">
+          <div>
+            <h2 id="formation-liens">Formation</h2>
+            <p>Baccalauréat S, option Mathématiques</p>
+            <p>3iS Bordeaux, Son / Audiovisuel</p>
+          </div>
+          <div>
+            <div class="links-grid">
+              <div class="link-card">
+                <span>LinkedIn</span>
+                <a href="https://www.linkedin.com/in/elgrandexu/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Maxime ERARD, ouvre dans un nouvel onglet">linkedin.com/in/elgrandexu</a>
+              </div>
+              <div class="link-card">
+                <span>GitHub</span>
+                <a href="https://github.com/ElGrandeXu" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Maxime ERARD, ouvre dans un nouvel onglet">github.com/ElGrandeXu</a>
+              </div>
+              <div class="link-card">
+                <span>Instagram</span>
+                <a href="https://www.instagram.com/elgrandexu/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Maxime ERARD, ouvre dans un nouvel onglet">instagram.com/elgrandexu</a>
+              </div>
+              <div class="link-card">
+                <span>EGX_Ingestion</span>
+                <a href="https://github.com/ElGrandeXu/EGX_Ingestion" target="_blank" rel="noopener noreferrer" aria-label="Dépôt GitHub EGX_Ingestion, ouvre dans un nouvel onglet">github.com/ElGrandeXu/EGX_Ingestion</a>
+              </div>
+              <div class="link-card">
+                <span>EGX_student</span>
+                <a href="https://github.com/ElGrandeXu/EGX_student" target="_blank" rel="noopener noreferrer" aria-label="Dépôt GitHub EGX_student, ouvre dans un nouvel onglet">github.com/ElGrandeXu/EGX_student</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <dialog class="intent-dialog" id="intentDialog" aria-labelledby="intentDialogTitle" aria-hidden="true">
+    <div class="intent-dialog__inner">
+      <button class="intent-dialog__close" type="button" aria-label="Fermer la note d’intention">×</button>
+      <article class="intent-dialog__content">
+        <p class="intent-kicker">Note d’intention</p>
+        <h2 id="intentDialogTitle">Pourquoi je construis des workflows IA maîtrisables</h2>
+        <p>Je ne suis pas arrivé à l’IA par fascination pour un outil. J’y suis arrivé par curiosité, par usage intensif, par friction, par perte d’accès, puis par nécessité de reconstruire.</p>
+        <p>Le 2 avril 2026, Anthropic m’a coupé l’accès à Claude. Dans mon terminal, Claude Code n’affichait plus qu’une phrase : <code>`your organisation has been disabled`</code>. En quelques secondes, une partie de mon système de travail disparaissait. Je ne perdais pas seulement un abonnement. Je perdais une porte d’entrée vers mes agents, mes routines, mes projets, ma mémoire de travail et tout un cockpit local que j’avais construit autour de mes cours, mes clients, mes devis, mes factures et mes workflows.</p>
+        <p>J’ai fait appel. J’ai expliqué que j’étais formateur, que je travaillais sur des projets pédagogiques, que mon objectif était de transmettre un usage concret de l’IA. Je n’ai jamais vraiment su ce qu’on me reprochait. Aucun exemple. Aucun avertissement. Aucun interlocuteur. Juste une décision opaque, et la sensation très nette qu’un outil devenu central pouvait disparaître à distance.</p>
+        <p>Cette expérience a changé ma manière de regarder l’IA.</p>
+        <p>Pendant des mois, j’avais construit avec Claude Code parce que l’outil était brillant. Rapide, puissant, concret. Comme beaucoup, je m’étais laissé happer par l’efficacité de l’interface. En parallèle, je préparais pourtant une version plus modulaire, plus LLM-agnostique, plus ouverte de mon propre système. L’idée était déjà là : ne pas habiter une prison dorée. Pouvoir changer de modèle. Passer par API. Revenir à du local quand c’est pertinent. Documenter les process pour qu’ils survivent à l’outil qui les a fait naître.</p>
+        <p>Le ban a simplement accéléré la prise de conscience.</p>
+        <p>Pour reconstruire, je suis passé par OpenRouter, par différents modèles, par des appels API, par des tests rapides et parfois coûteux. Ce que je payais environ 100 euros par mois dans un abonnement s’est transformé en presque 400 euros en une semaine lorsque j’ai payé l’usage réel, token après token. C’est à ce moment-là que le sujet a dépassé mon cas personnel.</p>
+        <p>Nous travaillons encore comme si l’IA était un buffet à volonté. En réalité, le buffet est temporaire. Beaucoup de freelances, d’étudiants, d’agences et d’entreprises construisent déjà des process entiers sur des abonnements à 20, 100 ou 200 euros par mois, comme si une telle puissance de raisonnement et d’automatisation pouvait rester indéfiniment au prix d’un forfait logiciel classique. Je pense que c’est une illusion dangereuse.</p>
+        <p>Le pay-per-token va remettre les choses à plat. Il va révéler le vrai coût des usages, des longues fenêtres de contexte, des agents permanents, des automatisations mal cadrées, des prompts trop larges, des systèmes qu’on laisse tourner sans mesurer. Certains croient remplacer un humain par un outil bon marché. Ils risquent surtout de découvrir qu’ils ont construit leur activité sur une infrastructure externe à prix d’appel.</p>
+        <p>Je continue pourtant de croire profondément à l’IA.</p>
+        <p>Je la vois tous les jours aider des gens à apprendre, produire, automatiser, comprendre, structurer, reprendre confiance. J’enseigne ces outils parce que je sais ce qu’ils peuvent débloquer. Mais je refuse de les présenter comme de la magie. Un modèle n’est pas une religion. Une interface n’est pas une stratégie. Un abonnement n’est pas une infrastructure.</p>
+        <p>Ce qui m’intéresse aujourd’hui, c’est ce qu’il y a derrière l’écran : les coûts, les dépendances, les formats, les APIs, les modèles locaux, les workflows de secours, la documentation, la transmission aux équipes. Mon réflexe n’est pas de demander “quel est le dernier modèle ?”, mais plutôt : quel modèle est suffisant, remplaçable, documentable et utilisable par une vraie équipe ?</p>
+        <p>C’est pour ça que je travaille avec des briques ouvertes quand elles ont du sens. ComfyUI, Stable Diffusion, Ollama, LM Studio, OpenRouter, GitHub, n8n, Python, JSON, des modèles locaux, des pipelines exportables, des systèmes qu’on peut comprendre et reprendre. La barrière technique existe, évidemment. Mais la barrière culturelle est souvent plus lourde : il faut accepter de regarder sous le capot, de tester autre chose que l’outil le mieux marketé, de perdre un peu de confort immédiat pour gagner en autonomie.</p>
+        <p>Je cherche aujourd’hui une équipe qui veut intégrer l’IA sérieusement. Pas seulement tester des prompts. Pas seulement suivre la course au dernier modèle. Une équipe qui veut construire des workflows utiles, mesurables, documentés, capables de tenir dans la durée. Une équipe qui comprend que l’enjeu n’est pas d’ajouter de l’IA partout, mais de savoir où elle crée vraiment de la valeur, à quel coût, avec quelles dépendances et avec quelles portes de sortie.</p>
+        <p>Ce CV montre ce que je sais faire. Cette note explique pourquoi je le fais comme ça.</p>
+        <p>La curiosité n’est pas un supplément d’âme. Dans l’IA moderne, c’est une compétence de survie.</p>
+      </article>
+    </div>
+  </dialog>
+
+  <div class="egx-shell" role="dialog" aria-label="EGX hidden shell" aria-hidden="true" hidden>
+    <div class="egx-shell__bar">
+      <span>EGX hidden shell</span>
+      <button class="egx-shell__close" type="button" aria-label="Fermer EGX hidden shell">×</button>
+    </div>
+    <div class="egx-shell__output" aria-live="polite"></div>
+    <form class="egx-shell__form">
+      <span class="egx-shell__prompt" aria-hidden="true">&gt;</span>
+      <input class="egx-shell__input" type="text" autocomplete="off" autocapitalize="none" spellcheck="false" aria-label="Commande EGX hidden shell" placeholder="help">
+    </form>
+  </div>
+
+  <div class="debug-overlay" aria-hidden="true">
+    <p class="debug-overlay-title">EGX debug layer</p>
+    <ul class="debug-overlay-list">
+      <li>[debug] semantic HTML</li>
+      <li>[debug] vanilla JS · no dependencies</li>
+      <li>[debug] live API probe</li>
+      <li>[debug] operator card · DiceBear visual payload</li>
+      <li>[debug] responsive · print-safe</li>
+      <li>[debug] external links · safe target blank</li>
+    </ul>
+  </div>
+
+  <script>
+    (function () {
+      var body = document.body;
+      body.classList.remove("no-js");
+      body.classList.add("js");
+
+      var cards = Array.prototype.slice.call(document.querySelectorAll(".project-card"));
+      var detailButtons = Array.prototype.slice.call(document.querySelectorAll(".toggle-detail"));
+      var openAll = document.getElementById("openAll");
+      var closeAll = document.getElementById("closeAll");
+      var printCv = document.getElementById("printCv");
+      var filterButtons = Array.prototype.slice.call(document.querySelectorAll(".filter-button"));
+      var egxShell = document.querySelector(".egx-shell");
+      var egxOutput = egxShell ? egxShell.querySelector(".egx-shell__output") : null;
+      var egxForm = egxShell ? egxShell.querySelector(".egx-shell__form") : null;
+      var egxInput = egxShell ? egxShell.querySelector(".egx-shell__input") : null;
+      var egxClose = egxShell ? egxShell.querySelector(".egx-shell__close") : null;
+      var debugOverlay = document.querySelector(".debug-overlay");
+      var egxPreviousFocus = null;
+      var openIntentNote = document.getElementById("openIntentNote");
+      var intentDialog = document.getElementById("intentDialog");
+      var closeIntentNote = intentDialog ? intentDialog.querySelector(".intent-dialog__close") : null;
+      var intentPreviousFocus = null;
+      var egxHasBooted = false;
+      var probeUnlocked = false;
+      var debugOverlayVisible = false;
+      var secretEndingUnlocked = false;
+      var probeCache = null;
+      var probePending = null;
+      var probeCacheKey = "egxCvProbeCache";
+      var probeCacheVersion = 2;
+      var probeCacheTtl = 10 * 60 * 1000;
+      var operatorSeed = "EGX_Ingestion-Maxime-ERARD-local-first-api-ready";
+      var operatorSeedLabel = "EGX_Ingestion · local-first · api-ready";
+      var operatorCardUrl = "https://api.dicebear.com/10.x/identicon/svg?seed=" + encodeURIComponent(operatorSeed);
+      var operatorCardNode = null;
+
+      window.egx = function () {
+        return {
+          message: "EGX CV hidden layer",
+          role: "Applied AI / workflows / open source",
+          hint: "Press ~ to open the EGX shell",
+          apiProbe: "available via hidden shell command: probe",
+          visualPayload: "operator card generated with DiceBear",
+          manifesto: "available via hidden shell command: manifesto",
+          unlock: "run probe, then scan recruiter or card"
+        };
+      };
+
+      function isIntentDialogOpen() {
+        return Boolean(intentDialog && (intentDialog.open || intentDialog.classList.contains("is-open")));
+      }
+
+      function restoreIntentFocus() {
+        if (intentPreviousFocus && typeof intentPreviousFocus.focus === "function") {
+          intentPreviousFocus.focus();
+        }
+        intentPreviousFocus = null;
+      }
+
+      function openIntentDialog() {
+        if (!intentDialog) {
+          return;
+        }
+
+        intentPreviousFocus = document.activeElement;
+        intentDialog.setAttribute("aria-hidden", "false");
+
+        if (typeof intentDialog.showModal === "function") {
+          if (!intentDialog.open) {
+            intentDialog.showModal();
+          }
+        } else {
+          intentDialog.classList.add("is-open");
+        }
+
+        body.classList.add("intent-note-open");
+        if (closeIntentNote) {
+          closeIntentNote.focus();
+        }
+      }
+
+      function closeIntentDialog() {
+        if (!isIntentDialogOpen()) {
+          return;
+        }
+
+        if (typeof intentDialog.close === "function" && intentDialog.open) {
+          intentDialog.close();
+          return;
+        }
+
+        intentDialog.classList.remove("is-open");
+        intentDialog.setAttribute("aria-hidden", "true");
+        body.classList.remove("intent-note-open");
+        restoreIntentFocus();
+      }
+
+      function setCardOpen(card, isOpen) {
+        if (!card) {
+          return;
+        }
+
+        var button = card.querySelector(".toggle-detail");
+        card.classList.toggle("is-open", isOpen);
+        if (button) {
+          button.setAttribute("aria-expanded", String(isOpen));
+          button.textContent = isOpen ? "Réduire" : "Détails";
+        }
+      }
+
+      function setAll(open) {
+        cards.forEach(function (card) {
+          setCardOpen(card, open);
+        });
+      }
+
+      detailButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          var card = button.closest(".project-card");
+          if (!card) {
+            return;
+          }
+
+          setCardOpen(card, !card.classList.contains("is-open"));
+        });
+      });
+
+      if (openAll) {
+        openAll.addEventListener("click", function () {
+          setAll(true);
+        });
+      }
+
+      if (closeAll) {
+        closeAll.addEventListener("click", function () {
+          setAll(false);
+        });
+      }
+
+      if (printCv) {
+        printCv.addEventListener("click", function () {
+          window.print();
+        });
+      }
+
+      filterButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          var filter = button.getAttribute("data-filter");
+          filterButtons.forEach(function (item) {
+            var active = item === button;
+            item.classList.toggle("is-active", active);
+            item.setAttribute("aria-pressed", String(active));
+          });
+          cards.forEach(function (card) {
+            var tags = card.getAttribute("data-tags") || "";
+            var show = filter === "all" || tags.split(" ").indexOf(filter) !== -1;
+            card.classList.toggle("is-hidden", !show);
+          });
+        });
+      });
+
+      function isTypingTarget(target) {
+        if (!target) {
+          return false;
+        }
+
+        var tagName = target.tagName ? target.tagName.toLowerCase() : "";
+        return target.isContentEditable || tagName === "input" || tagName === "textarea" || tagName === "select";
+      }
+
+      function isShellVisible() {
+        return Boolean(egxShell && !egxShell.hidden);
+      }
+
+      function appendShellLine(text, modifier) {
+        if (!egxOutput) {
+          return;
+        }
+
+        var line = document.createElement("p");
+        line.className = "egx-shell__line" + (modifier ? " egx-shell__line--" + modifier : "");
+        line.textContent = text;
+        egxOutput.appendChild(line);
+        egxOutput.scrollTop = egxOutput.scrollHeight;
+      }
+
+      function appendShellNode(node) {
+        if (!egxOutput || !node) {
+          return;
+        }
+
+        egxOutput.appendChild(node);
+        egxOutput.scrollTop = egxOutput.scrollHeight;
+      }
+
+      function formatNumber(value) {
+        if (typeof value !== "number" || !isFinite(value)) {
+          return null;
+        }
+
+        return new Intl.NumberFormat("en-US").format(value);
+      }
+
+      function formatDate(value) {
+        if (!value || typeof value !== "string") {
+          return null;
+        }
+
+        return value.slice(0, 10);
+      }
+
+      function readProbeCacheFromSession() {
+        try {
+          var stored = window.sessionStorage ? window.sessionStorage.getItem(probeCacheKey) : null;
+          var parsed = stored ? JSON.parse(stored) : null;
+          if (parsed && parsed.version === probeCacheVersion && Array.isArray(parsed.lines) && typeof parsed.timestamp === "number") {
+            return parsed;
+          }
+        } catch (error) {
+          return null;
+        }
+
+        return null;
+      }
+
+      function writeProbeCacheToSession(cache) {
+        try {
+          if (window.sessionStorage) {
+            window.sessionStorage.setItem(probeCacheKey, JSON.stringify(cache));
+          }
+        } catch (error) {
+          return;
+        }
+      }
+
+      function getProbeCache() {
+        if (!probeCache) {
+          probeCache = readProbeCacheFromSession();
+        }
+
+        if (!probeCache) {
+          return null;
+        }
+
+        if (Date.now() - probeCache.timestamp > probeCacheTtl) {
+          probeCache = null;
+          return null;
+        }
+
+        return probeCache;
+      }
+
+      function setProbeCache(lines) {
+        probeCache = {
+          version: probeCacheVersion,
+          timestamp: Date.now(),
+          lines: lines,
+          operatorSeed: operatorSeed,
+          operatorCardUrl: operatorCardUrl
+        };
+        writeProbeCacheToSession(probeCache);
+      }
+
+      async function fetchJson(url) {
+        if (typeof fetch !== "function") {
+          throw new Error("fetch unavailable");
+        }
+
+        var response = await fetch(url, {
+          method: "GET",
+          headers: {
+            "Accept": "application/json"
+          },
+          credentials: "omit",
+          referrerPolicy: "no-referrer",
+          cache: "no-store"
+        });
+
+        if (!response.ok) {
+          throw new Error("HTTP " + response.status);
+        }
+
+        return response.json();
+      }
+
+      async function fetchGithubProbe() {
+        var repo = await fetchJson("https://api.github.com/repos/ElGrandeXu/EGX_Ingestion");
+        var parts = [];
+        var license = repo.license && (repo.license.spdx_id || repo.license.name) || "license unknown";
+        var stars = formatNumber(repo.stargazers_count);
+        var updated = formatDate(repo.updated_at);
+
+        parts.push(repo.name || "EGX_Ingestion");
+        parts.push(repo.private === false ? "public" : "visibility unknown");
+        parts.push(license);
+        if (typeof repo.stargazers_count === "number" && repo.stargazers_count > 0 && stars !== null) {
+          parts.push(stars + (repo.stargazers_count === 1 ? " star" : " stars"));
+        }
+        parts.push(repo.default_branch || "default branch unknown");
+        if (updated) {
+          parts.push("updated " + updated);
+        }
+
+        return "GitHub: " + parts.join(" · ");
+      }
+
+      async function buildProbeLines() {
+        var githubLine = "GitHub probe unavailable · degraded gracefully";
+
+        try {
+          githubLine = await fetchGithubProbe();
+        } catch (error) {
+          githubLine = "GitHub probe unavailable · degraded gracefully";
+        }
+
+        return [
+          githubLine,
+          "Visual payload: EGX operator card · generated via DiceBear API"
+        ];
+      }
+
+      function renderHelp() {
+        var commands = probeUnlocked
+          ? "commands: projects, stack, contact, manifesto, probe, scan recruiter, debug, card, print, clear, close"
+          : "commands: projects, stack, contact, manifesto, probe, print, clear, close";
+
+        appendShellLine(commands);
+      }
+
+      function unlockRecruiterDossier() {
+        probeUnlocked = true;
+        appendShellLine("Probe complete.");
+        appendShellLine("No key · no backend · graceful fallback.");
+        appendShellLine("Recruiter dossier unlocked.");
+        appendShellLine("Debug overlay unlocked.");
+        appendShellLine("New command: scan recruiter");
+        appendShellLine("New command: card");
+        appendShellLine("Type debug to toggle the overlay.");
+      }
+
+      function toggleDebugOverlay() {
+        if (!probeUnlocked) {
+          if (isShellVisible()) {
+            appendShellLine("debug overlay locked · run probe first");
+          }
+          return;
+        }
+
+        debugOverlayVisible = !debugOverlayVisible;
+        if (debugOverlay) {
+          debugOverlay.classList.toggle("is-visible", debugOverlayVisible);
+        }
+        if (isShellVisible()) {
+          appendShellLine(debugOverlayVisible ? "debug overlay enabled" : "debug overlay disabled");
+        }
+      }
+
+      async function runProbe() {
+        var cached = getProbeCache();
+
+        if (cached) {
+          appendShellLine("cached probe · refreshed less than 10 min ago");
+          cached.lines.forEach(function (line) {
+            appendShellLine(line);
+          });
+          unlockRecruiterDossier();
+          return;
+        }
+
+        appendShellLine("running live API probe...");
+
+        try {
+          if (!probePending) {
+            probePending = buildProbeLines();
+          }
+
+          var lines = await probePending;
+          setProbeCache(lines);
+          lines.forEach(function (line) {
+            appendShellLine(line);
+          });
+        } catch (error) {
+          appendShellLine("GitHub probe unavailable · degraded gracefully");
+          appendShellLine("Visual payload: EGX operator card · generated via DiceBear API");
+        } finally {
+          probePending = null;
+        }
+
+        unlockRecruiterDossier();
+      }
+
+      function createOperatorCard() {
+        var card = document.createElement("div");
+        var media = document.createElement("div");
+        var image = document.createElement("img");
+        var body = document.createElement("div");
+        var title = document.createElement("p");
+        var seed = document.createElement("p");
+        var source = document.createElement("p");
+        var status = document.createElement("p");
+        var fallback = document.createElement("p");
+
+        card.className = "operator-card is-visible";
+        card.setAttribute("role", "group");
+        card.setAttribute("aria-label", "EGX operator card");
+
+        media.className = "operator-card-media";
+        image.src = operatorCardUrl;
+        image.alt = "EGX operator card generated avatar";
+        image.loading = "lazy";
+        image.decoding = "async";
+        image.addEventListener("error", function () {
+          card.classList.add("is-failed");
+        });
+        media.appendChild(image);
+
+        title.className = "operator-card-title";
+        title.textContent = "EGX OPERATOR CARD";
+        seed.className = "operator-card-meta";
+        seed.textContent = "seed: " + operatorSeedLabel;
+        source.className = "operator-card-meta";
+        source.textContent = "source: GitHub · DiceBear API · vanilla JS";
+        status.className = "operator-card-status";
+        status.textContent = "status: no key · no backend · graceful fallback";
+        fallback.className = "operator-card-fallback";
+        fallback.textContent = "visual payload unavailable · degraded gracefully";
+
+        body.appendChild(title);
+        body.appendChild(seed);
+        body.appendChild(source);
+        body.appendChild(status);
+        body.appendChild(fallback);
+        card.appendChild(media);
+        card.appendChild(body);
+
+        return card;
+      }
+
+      function renderOperatorCard() {
+        if (!probeUnlocked) {
+          appendShellLine("operator card locked · run probe first");
+          return;
+        }
+
+        appendShellLine("EGX operator card rendered.");
+        appendShellLine("Seed: " + operatorSeedLabel);
+
+        if (!operatorCardNode || !egxOutput || !egxOutput.contains(operatorCardNode)) {
+          operatorCardNode = createOperatorCard();
+          appendShellNode(operatorCardNode);
+          return;
+        }
+
+        egxOutput.scrollTop = egxOutput.scrollHeight;
+      }
+
+      function runRecruiterScan() {
+        if (!probeUnlocked) {
+          appendShellLine("recruiter scan locked · run probe first");
+          return;
+        }
+
+        [
+          "Scanning recruiter intent...",
+          "",
+          "If you need:",
+          "✓ AI workflows that survive outside demos",
+          "✓ API orchestration without vendor lock-in",
+          "✓ creative production with technical discipline",
+          "✓ documentation a team can actually reuse",
+          "",
+          "Best evidence:",
+          "1. Minimood · productized AI pipeline",
+          "2. EGX_Ingestion · open-source method",
+          "3. Asphalte · long-term production use",
+          "",
+          "Risk:",
+          "Hybrid profile. Best evaluated through shipped systems.",
+          "",
+          "Recommended action:",
+          "Ask about the pipeline behind Minimood.",
+          "",
+          "Secret ending unlocked:",
+          "You found the layer behind the interface.",
+          "That is basically the job."
+        ].forEach(function (line) {
+          appendShellLine(line);
+        });
+
+        secretEndingUnlocked = true;
+      }
+
+      function bootShell() {
+        if (egxHasBooted) {
+          return;
+        }
+
+        appendShellLine("EGX shell unlocked");
+        appendShellLine("type help");
+        egxHasBooted = true;
+      }
+
+      function openShell() {
+        if (!egxShell || !egxInput) {
+          return;
+        }
+
+        egxPreviousFocus = document.activeElement;
+        bootShell();
+        egxShell.hidden = false;
+        egxShell.setAttribute("aria-hidden", "false");
+        egxInput.focus();
+      }
+
+      function closeShell() {
+        if (!egxShell) {
+          return;
+        }
+
+        if (egxPreviousFocus && typeof egxPreviousFocus.focus === "function") {
+          egxPreviousFocus.focus();
+        } else if (egxShell.contains(document.activeElement) && typeof document.activeElement.blur === "function") {
+          document.activeElement.blur();
+        }
+
+        egxShell.hidden = true;
+        egxShell.setAttribute("aria-hidden", "true");
+        egxPreviousFocus = null;
+      }
+
+      function toggleShell() {
+        if (isShellVisible()) {
+          closeShell();
+          return;
+        }
+
+        openShell();
+      }
+
+      function runShellCommand(rawCommand) {
+        var command = rawCommand.trim().toLowerCase();
+
+        if (!command) {
+          return;
+        }
+
+        appendShellLine("> " + rawCommand.trim(), "command");
+
+        if (command === "help") {
+          renderHelp();
+        } else if (command === "projects") {
+          appendShellLine("EGX, MiniMood, AI production workflows, training, packshot pipelines.");
+        } else if (command === "stack") {
+          appendShellLine("Python, APIs, ComfyUI, local models, OpenRouter, Fal.ai, GitHub, workflow design.");
+        } else if (command === "contact") {
+          appendShellLine("max.erard.ime@gmail.com | github.com/ElGrandeXu | linkedin.com/in/elgrandexu | instagram.com/elgrandexu");
+        } else if (command === "manifesto" || command === "note") {
+          appendShellLine("Opening note d’intention...");
+          openIntentDialog();
+        } else if (command === "probe") {
+          runProbe().catch(function () {
+            appendShellLine("GitHub probe unavailable · degraded gracefully");
+            appendShellLine("Visual payload: EGX operator card · generated via DiceBear API");
+            unlockRecruiterDossier();
+          });
+        } else if (command === "scan recruiter") {
+          runRecruiterScan();
+        } else if (command === "debug" || command === "d") {
+          toggleDebugOverlay();
+        } else if (command === "card") {
+          renderOperatorCard();
+        } else if (command === "print") {
+          window.print();
+        } else if (command === "clear") {
+          egxOutput.textContent = "";
+          operatorCardNode = null;
+        } else if (command === "close") {
+          closeShell();
+        } else {
+          appendShellLine("unknown command: " + command);
+        }
+      }
+
+      if (egxForm && egxInput) {
+        egxForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+          runShellCommand(egxInput.value);
+          egxInput.value = "";
+        });
+      }
+
+      if (egxClose) {
+        egxClose.addEventListener("click", closeShell);
+      }
+
+      if (openIntentNote) {
+        openIntentNote.addEventListener("click", openIntentDialog);
+      }
+
+      if (closeIntentNote) {
+        closeIntentNote.addEventListener("click", closeIntentDialog);
+      }
+
+      if (intentDialog) {
+        intentDialog.addEventListener("cancel", function (event) {
+          event.preventDefault();
+          closeIntentDialog();
+        });
+
+        intentDialog.addEventListener("close", function () {
+          intentDialog.classList.remove("is-open");
+          intentDialog.setAttribute("aria-hidden", "true");
+          body.classList.remove("intent-note-open");
+          restoreIntentFocus();
+        });
+      }
+
+      document.addEventListener("keydown", function (event) {
+        var typing = isTypingTarget(event.target);
+
+        if (event.key === "Escape" && isIntentDialogOpen()) {
+          event.preventDefault();
+          closeIntentDialog();
+          return;
+        }
+
+        if (event.key === "Escape" && isShellVisible()) {
+          if (typing && egxShell && !egxShell.contains(event.target)) {
+            return;
+          }
+          event.preventDefault();
+          closeShell();
+          return;
+        }
+
+        if ((event.key === "d" || event.key === "D") && !typing) {
+          if (!probeUnlocked && !isShellVisible()) {
+            return;
+          }
+
+          event.preventDefault();
+          toggleDebugOverlay();
+          return;
+        }
+
+        var isToggleKey = event.key === "~" || event.key === "²";
+        if (!isToggleKey) {
+          return;
+        }
+
+        if (typing) {
+          return;
+        }
+
+        if (isShellVisible()) {
+          event.preventDefault();
+          toggleShell();
+          return;
+        }
+
+        event.preventDefault();
+        openShell();
+      });
+
+      var printStates = null;
+
+      window.addEventListener("beforeprint", function () {
+        printStates = cards.map(function (card) {
+          return card.classList.contains("is-open");
+        });
+        cards.forEach(function (card) {
+          setCardOpen(card, false);
+        });
+      });
+
+      window.addEventListener("afterprint", function () {
+        if (!printStates) {
+          return;
+        }
+        cards.forEach(function (card, index) {
+          setCardOpen(card, printStates[index]);
+        });
+        printStates = null;
+      });
+    }());
+  </script>
+  <!--
+    Achievement unlocked: source inspected.
+    Clean systems, readable code, useful AI.
+    Hint: press ~ or ² to open the EGX shell.
+    Run probe to unlock the recruiter dossier and operator card.
+    Type manifesto to open the note behind the CV.
+  -->
+</body>
+</html>
