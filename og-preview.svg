@@ -57,15 +57,15 @@
       <rect x="28" y="150" width="256" height="10" rx="5" fill="#d8ded8"/>
     </g>
 
-    <g id="tags" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" text-anchor="middle" dominant-baseline="central">
+    <g id="tags" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="700">
       <rect x="28" y="205" width="74" height="32" rx="16" fill="#f8eeec" stroke="#b04a3f"/>
-      <text x="65" y="221" fill="#7c3029">IA</text>
+      <text x="65" y="221" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" fill="#7c3029">IA</text>
       <rect x="112" y="205" width="82" height="32" rx="16" fill="#ffffff" stroke="#d8ded8"/>
-      <text x="153" y="221" fill="#58625d">API</text>
+      <text x="153" y="221" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" fill="#58625d">API</text>
       <rect x="204" y="205" width="130" height="32" rx="16" fill="#ffffff" stroke="#d8ded8"/>
-      <text x="269" y="221" fill="#58625d">Open source</text>
+      <text x="269" y="221" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" fill="#58625d">Open source</text>
       <rect x="344" y="205" width="100" height="32" rx="16" fill="#ffffff" stroke="#d8ded8"/>
-      <text x="394" y="221" fill="#58625d">Produit</text>
+      <text x="394" y="221" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" fill="#58625d">Produit</text>
     </g>
 
     <g id="cards">
