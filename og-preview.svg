@@ -49,38 +49,38 @@
     <circle cx="64" cy="21" r="5" fill="#aebbb2"/>
     <text x="96" y="27" fill="#dce5df" font-family="Consolas, Menlo, monospace" font-size="15">index.html</text>
 
-    <rect x="28" y="72" width="258" height="22" rx="4" fill="#111513"/>
-    <rect x="28" y="110" width="198" height="10" rx="5" fill="#aebbb2"/>
-    <rect x="28" y="130" width="304" height="10" rx="5" fill="#d8ded8"/>
-    <rect x="28" y="150" width="256" height="10" rx="5" fill="#d8ded8"/>
+    <rect x="32" y="72" width="270" height="22" rx="4" fill="#111513"/>
+    <rect x="32" y="110" width="198" height="10" rx="5" fill="#aebbb2"/>
+    <rect x="32" y="130" width="304" height="10" rx="5" fill="#d8ded8"/>
+    <rect x="32" y="150" width="256" height="10" rx="5" fill="#d8ded8"/>
 
-    <g font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="700">
-      <rect x="28" y="190" width="76" height="28" rx="14" fill="#f8eeec" stroke="#b04a3f" opacity="0.95"/>
-      <text x="47" y="209" fill="#7c3029">IA</text>
-      <rect x="114" y="190" width="82" height="28" rx="14" fill="#ffffff" stroke="#d8ded8"/>
-      <text x="138" y="209" fill="#58625d">API</text>
-      <rect x="206" y="190" width="122" height="28" rx="14" fill="#ffffff" stroke="#d8ded8"/>
-      <text x="226" y="209" fill="#58625d">Open source</text>
-      <rect x="338" y="190" width="116" height="28" rx="14" fill="#ffffff" stroke="#d8ded8"/>
-      <text x="359" y="209" fill="#58625d">Produit</text>
+    <g font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" text-anchor="middle" dominant-baseline="middle">
+      <rect x="32" y="190" width="70" height="30" rx="15" fill="#f8eeec" stroke="#b04a3f" opacity="0.95"/>
+      <text x="67" y="205" fill="#7c3029">IA</text>
+      <rect x="112" y="190" width="76" height="30" rx="15" fill="#ffffff" stroke="#d8ded8"/>
+      <text x="150" y="205" fill="#58625d">API</text>
+      <rect x="198" y="190" width="134" height="30" rx="15" fill="#ffffff" stroke="#d8ded8"/>
+      <text x="265" y="205" fill="#58625d">Open source</text>
+      <rect x="342" y="190" width="112" height="30" rx="15" fill="#ffffff" stroke="#d8ded8"/>
+      <text x="398" y="205" fill="#58625d">Produit</text>
     </g>
 
     <g>
-      <rect x="28" y="250" width="202" height="96" rx="10" fill="#ffffff" stroke="#d8ded8"/>
-      <text x="48" y="284" fill="#111513" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="20" font-weight="800">Projets cles</text>
-      <text x="48" y="315" fill="#58625d" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15">EGX . Asphalte . TEDx</text>
-      <rect x="48" y="330" width="112" height="4" rx="2" fill="#b04a3f"/>
+      <rect x="32" y="250" width="204" height="104" rx="10" fill="#ffffff" stroke="#d8ded8"/>
+      <text x="54" y="286" fill="#111513" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="20" font-weight="800">Projets cles</text>
+      <text x="54" y="318" fill="#58625d" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15">EGX . Asphalte . TEDx</text>
+      <rect x="54" y="336" width="112" height="4" rx="2" fill="#b04a3f"/>
 
-      <rect x="252" y="250" width="202" height="96" rx="10" fill="#ffffff" stroke="#d8ded8"/>
-      <text x="272" y="284" fill="#111513" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="20" font-weight="800">Stack</text>
-      <text x="272" y="315" fill="#58625d" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15">Python . LLM . APIs</text>
-      <rect x="272" y="330" width="88" height="4" rx="2" fill="#b04a3f"/>
+      <rect x="260" y="250" width="204" height="104" rx="10" fill="#ffffff" stroke="#d8ded8"/>
+      <text x="282" y="286" fill="#111513" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="20" font-weight="800">Stack</text>
+      <text x="282" y="318" fill="#58625d" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15">Python . LLM . APIs</text>
+      <rect x="282" y="336" width="88" height="4" rx="2" fill="#b04a3f"/>
     </g>
   </g>
 
   <g transform="translate(640 504)">
-    <rect x="0" y="0" width="430" height="46" rx="9" fill="#151a17"/>
+    <rect x="0" y="0" width="432" height="46" rx="9" fill="#151a17"/>
     <text x="20" y="29" fill="#dce5df" font-family="Consolas, Menlo, monospace" font-size="17">$ open cv --interactive --public</text>
-    <circle cx="394" cy="23" r="6" fill="#b04a3f"/>
+    <circle cx="396" cy="23" r="6" fill="#b04a3f"/>
   </g>
 </svg>
